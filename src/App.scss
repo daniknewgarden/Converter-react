@@ -1,0 +1,16 @@
+:root {
+  --color-background: #000;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+
+  &.dark {
+    background-color: #000;
+  }
+
+  &.ligth {
+    background-color: green;
+  }
+}

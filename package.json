@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-redux": "^7.2.1",
     "react-scripts": "3.4.4"
   },
   "scripts": {
@@ -30,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
   }
 }
