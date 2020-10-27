@@ -1,7 +1,6 @@
 import * as Actions from "./themeActions";
 
 //Initial state
-
 const initialState = {
     darkTheme: true
 }
