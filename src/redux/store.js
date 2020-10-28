@@ -13,6 +13,8 @@ if (process.env.NODE_ENV === `development`) {
   middlewares.push(logger);
 }
 
+//FIXME: logger don't work correct (undefined)
+
 //Store
 const store = createStore(combineReducers, applyMiddleware(...middlewares));
 

@@ -38,6 +38,7 @@ function App() {
     }
   }
 
+  //FIXME: API request don't working (see ./redux/API/)
   //Rates
   const ratesData = useSelector(state => state.ratesData.ratesData)
   const getData = () => {
