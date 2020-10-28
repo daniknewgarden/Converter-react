@@ -5,6 +5,7 @@ import './App.scss';
 import { applyTheme } from './redux/theme/themeActions';
 import { applyFullscreen } from './redux/fullscreen/fullscreenActions';
 import { applyDesktop, applyTablet, applyMobile } from './redux/device/deviceActions';
+import { fetchRates } from "./redux/API/requestActions";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
   const changeTheme = (theme) => {
     dispatch(applyTheme(theme))
   }
+
   //Screen mode
   const fullscreen = useSelector(state => state.fullscreen.fullscreen);
   const changeMode = (fullscreen) => {
@@ -36,6 +38,11 @@ function App() {
     }
   }
 
+  //Rates
+  const ratesData = useSelector(state => state.ratesData.ratesData)
+  const getData = () => {
+    fetchRates();
+  }
 
   return (
     <div className={`App ${darkTheme ? 'dark' : 'light'}`}>
@@ -47,6 +54,7 @@ function App() {
       <button onClick={() => changeDeviceMode('mobile')}>Mobile</button>
       <button onClick={() => changeDeviceMode('tablet')}>Tablet</button>
       <button onClick={() => changeDeviceMode('default')}>Default</button>
+      <button onClick={() => getData()}>Get data from API</button>
     </div>
   );
 }
