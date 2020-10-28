@@ -8,7 +8,7 @@ const initialState = {
 const fullscreenReducer = (state = initialState, action) => {
     switch (action.type) {
         case Actions.APPLY_FULLSCREEN:
-            return Object.assign({}, { fullscreen: action.payload } );
+            return {...state, fullscreen: action.payload};
         default:
             return initialState;
     }

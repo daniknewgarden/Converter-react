@@ -9,11 +9,11 @@ const initialState = {
 const deviceReducer = (state = initialState, action) => {
     switch (action.type) {
         case Actions.APPLY_MOBILE:
-            return Object.assign({}, { mode: 'mobile' } );
+            return {...state, mode: 'mobile'};
         case Actions.APPLY_TABLET:
-            return Object.assign({}, { mode: 'tablet' } );
+            return {...state, mode: 'tablet'};
         case Actions.APPLY_DESKTOP:
-            return Object.assign({}, { mode: 'default' } );
+            return {...state, mode: 'default'};
         default:
             return state
     }

@@ -5,10 +5,11 @@ const initialState = {
     darkTheme: true
 }
 
+//Reducer
 const themeReducer = (state = initialState, action) => {
     switch (action.type) {
         case Actions.APPLY_THEME:
-            return Object.assign({}, { darkTheme: action.payload } );
+            return {...state, darkTheme: action.payload};
         default:
             return state;
     }
