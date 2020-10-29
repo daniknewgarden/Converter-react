@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './App.scss';
 //Redux actions
@@ -45,6 +45,10 @@ function App() {
     dispatch(fetchRates());
   }
 
+  useEffect(() => {
+    console.log(ratesData)
+  }, [ratesData])
+
   return (
     <div className={`App ${darkTheme ? 'dark' : 'light'}`}>
       <h1>{fullscreen ? 'Fullscreen' : 'Minimized'}</h1>
@@ -55,6 +59,7 @@ function App() {
       <button onClick={() => changeDeviceMode('mobile')}>Mobile</button>
       <button onClick={() => changeDeviceMode('tablet')}>Tablet</button>
       <button onClick={() => changeDeviceMode('default')}>Default</button>
+      <h2>{ratesData.data && ratesData.data.rates.AUD}</h2>
       <button onClick={() => getData()}>Get data from API</button>
     </div>
   );
