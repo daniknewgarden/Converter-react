@@ -1,34 +1,40 @@
 //Request actions types
-export const REQUEST_RATES = 'REQUEST_RATES';
-export const RECEIVE_RATES = 'RECEIVE_RATES';
+export const START_FETCH_RATES = 'START_FETCH_RATES';
+export const FINISH_FETCH_RATES = 'FINISH_FETCH_RATES';
+export const ERROR_FETCH_RATES = 'ERROR_FETCH_RATES';
 
 //Request actions
-export const requestRates = () => {
+export const startFetchRates = () => {
     return {
-        type: REQUEST_RATES
+        type: START_FETCH_RATES
     }
 }
 
-export const receivedRates = (json) => {
+export const finishFetchRates = (data) => {
     return {
-        type: RECEIVE_RATES
+        type: FINISH_FETCH_RATES,
+        payload: data
     }
 }
 
+export const errorFetchRates = (error) => {
+    return {
+        type: ERROR_FETCH_RATES,
+        payload: error
+    }
+}
+
+//Async API request
 //TODO: add base currency argument to link
-export const fetchRates = (params) => {
-    return function (dispatch) {
-        dispatch(requestRates());
-        return fetch(`https://api.exchangeratesapi.io/latest?base=USD`)
-        .then(
-            (response) => response.json(),
-            (error) => console.error('Problem with request :( :', error)
-        )
-        .then((json) => {
-            dispatch(receivedRates(json));
-        })
+export const fetchRates = async (dispatch) => {
+    dispatch(startFetchRates())
+
+    try {
+        const data = await fetch('https://api.exchangeratesapi.io/latest?base=USD')
+        .then((res) => res.json())
+        dispatch(finishFetchRates(data))
+    } catch (error) {
+        dispatch(errorFetchRates(error))
     }
+
 }
-
-
-

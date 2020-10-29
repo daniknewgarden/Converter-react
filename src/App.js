@@ -40,9 +40,9 @@ function App() {
 
   //FIXME: API request don't working (see ./redux/API/)
   //Rates
-  const ratesData = useSelector(state => state.ratesData.ratesData)
+  const ratesData = useSelector(state => state.ratesData)
   const getData = () => {
-    fetchRates();
+    dispatch(fetchRates());
   }
 
   return (
