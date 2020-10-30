@@ -66,3 +66,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Components guide 🧩
+###  ControlBtn
+Button allows you to toggle change somethink.
+#### Props (name, type, description)
+
+   **label** - type: string, your text in button.
+   **icon** - paste here your imported icon.
+   **iconEnabled** - paste here icon, if you want to toggle icon.
+   **reversed** - boolean, change padding side (default side: left).  
