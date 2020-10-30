@@ -1,0 +1,33 @@
+//Styles for ControlBtn
+.control-button {
+  transition: all var(--animation-speed);
+
+  border: none;
+
+  font-size: var(--size-text-label);
+  color: var(--color-text-secondary);
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 7px 4px;
+
+  padding: 4px 8px 4px 30px;
+
+  border-radius: 8px;
+
+  //States
+  &:hover {
+    background-color: var(--color-border);
+  }
+  &:focus {
+    outline: none;
+    background-color: var(--color-border);
+    color: var(--color-text-primary);
+  }
+
+  //Variants
+  &.reversed {
+    padding: 4px 30px 4px 8px;
+    background-position: calc(100% - 7px) 4px;
+  }
+}

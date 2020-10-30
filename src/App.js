@@ -6,6 +6,10 @@ import { applyTheme } from './redux/theme/themeActions';
 import { applyFullscreen } from './redux/fullscreen/fullscreenActions';
 import { applyDesktop, applyTablet, applyMobile } from './redux/device/deviceActions';
 import { fetchRates } from "./redux/API/requestActions";
+import { ControlBtn } from './components/ControlBtn/ControlBtn';
+//Icons
+import downIcon from './icons/down.svg';
+import upIcon from './icons/up.svg';
 
 function App() {
 
@@ -46,21 +50,15 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(ratesData)
-  }, [ratesData])
+    getData();
+  }, [])
 
   return (
     <div className={`App ${darkTheme ? 'dark' : 'light'}`}>
-      <h1>{fullscreen ? 'Fullscreen' : 'Minimized'}</h1>
-      <h1>{`Device is ${mode}`}</h1>
-      <button onClick={() => changeTheme(!darkTheme)}>Change theme</button>
-      <button onClick={() => changeMode(!fullscreen)}>Change screen mode</button>
-      <h2>Change device mode</h2>
-      <button onClick={() => changeDeviceMode('mobile')}>Mobile</button>
-      <button onClick={() => changeDeviceMode('tablet')}>Tablet</button>
-      <button onClick={() => changeDeviceMode('default')}>Default</button>
-      <h2>{ratesData.data && ratesData.data.rates.AUD}</h2>
-      <button onClick={() => getData()}>Get data from API</button>
+      <div className='fragment'>
+          <h2>Control button</h2>
+          <ControlBtn label='Default' icon={downIcon} iconEnabled={upIcon} reversed={true} />
+      </div>
     </div>
   );
 }
