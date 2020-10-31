@@ -62,7 +62,7 @@ function App() {
       </div>
       <div className='fragment'>
           <h2>Add button</h2>
-          <AddBtn label='Default' icon={downIcon} />
+          <AddBtn label='Default' icon={downIcon}/>
       </div>
     </div>
   );
