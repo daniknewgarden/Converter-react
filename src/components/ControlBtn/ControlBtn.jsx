@@ -29,9 +29,12 @@ export const ControlBtn = ({label, icon, iconEnabled, reversed, callback}) => {
         }
     }
 
+    //Class names
+    const classNames = `control-button ${reversed ? 'reversed' : ''} ${icon ? 'icon' : ''}`
+
     return (
         <>
-            <button className={`control-button ${reversed ? 'reversed' : ''}`} style={styles} onClick={toggleClick}>
+            <button className={classNames} style={styles} onClick={toggleClick}>
                 {label}
             </button>
         </>

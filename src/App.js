@@ -10,6 +10,7 @@ import { ControlBtn } from './components/ControlBtn/ControlBtn';
 //Icons
 import downIcon from './icons/down.svg';
 import upIcon from './icons/up.svg';
+import { AddBtn } from './components/AddBtn/AddBtn';
 
 function App() {
 
@@ -58,6 +59,10 @@ function App() {
       <div className='fragment'>
           <h2>Control button</h2>
           <ControlBtn label='Default' icon={downIcon} iconEnabled={upIcon} reversed={true} />
+      </div>
+      <div className='fragment'>
+          <h2>Add button</h2>
+          <AddBtn label='Default' icon={downIcon} />
       </div>
     </div>
   );
