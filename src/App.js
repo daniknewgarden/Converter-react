@@ -6,11 +6,13 @@ import { applyTheme } from './redux/theme/themeActions';
 import { applyFullscreen } from './redux/fullscreen/fullscreenActions';
 import { applyDesktop, applyTablet, applyMobile } from './redux/device/deviceActions';
 import { fetchRates } from "./redux/API/requestActions";
-import { ControlBtn } from './components/ControlBtn/ControlBtn';
 //Icons
 import downIcon from './icons/down.svg';
 import upIcon from './icons/up.svg';
+//Components
+import { ControlBtn } from './components/ControlBtn/ControlBtn';
 import { AddBtn } from './components/AddBtn/AddBtn';
+import { Header } from "./components/Header/Header";
 
 function App() {
 
@@ -63,6 +65,10 @@ function App() {
       <div className='fragment'>
           <h2>Add button</h2>
           <AddBtn label='Default' icon={downIcon}/>
+      </div>
+      <div className='fragment'>
+          <h2>Header</h2>
+          <Header />
       </div>
     </div>
   );

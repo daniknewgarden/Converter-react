@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 //Styles
 import './ControlBtn.scss';
 
-export const ControlBtn = ({label, icon, iconEnabled, reversed, callback}) => {
+export const ControlBtn = ({label, icon, iconEnabled, reversed, onClick}) => {
 
     const [enabled, setEnabled] = useState(false);
     const [background, setBackground] = useState(icon);
@@ -24,8 +24,8 @@ export const ControlBtn = ({label, icon, iconEnabled, reversed, callback}) => {
     const toggleClick = () => {
         setEnabled(!enabled);
 
-        if (callback) {
-            callback();
+        if (onClick) {
+            onClick();
         }
     }
 
