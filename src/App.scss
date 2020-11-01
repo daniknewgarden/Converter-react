@@ -36,7 +36,7 @@
   min-height: 100vh;
 
   &.dark {
-    background-color: #000;
+    background-color: var(--color-body);
     color: #fff;
   }
 

@@ -1,0 +1,24 @@
+//Styles for Header component
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20px 40px;
+
+  background-color: var(--color-surface);
+  &__link {
+    font-size: var(--size-text-label);
+    color: var(--color-text-secondary);
+  }
+
+  &__controls {
+    *:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+
+  //Variants
+  &.fullscreen {
+    background-color: var(--color-body);
+  }
+}
