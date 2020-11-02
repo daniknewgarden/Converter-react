@@ -30,7 +30,11 @@
     padding: 4px 8px 4px 30px;
     &.reversed {
       padding: 4px 30px 4px 8px;
-      background-position: calc(100% - 7px) 4px;
+      background-position: calc(100% - 7px) center;
     }
+  }
+
+  &.big {
+    font-size: var(--size-text-title);
   }
 }
