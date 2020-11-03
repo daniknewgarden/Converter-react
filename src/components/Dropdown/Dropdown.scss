@@ -1,0 +1,102 @@
+//Styles for Dropdown component
+.dropdown {
+  transition: all var(--animation-speed) ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  //Menu
+  &__menu {
+    margin-top: 6px;
+    display: inline-block;
+
+    width: clamp(220px, 51.85%, 280px);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--size-border-radius);
+    background-color: var(--color-surface);
+  }
+
+  //Menu search
+  &__menu-search {
+    transition: all var(--animation-speed) ease-in-out;
+
+    width: 100%;
+
+    border-radius: var(--size-border-radius) var(--size-border-radius) 0 0;
+    border-bottom: 1px solid var(--color-border);
+    padding: 8px 15px 8px 36px;
+
+    color: var(--color-text-secondary);
+    background-color: var(--color-surface);
+    background-image: url(./icons/search.svg);
+    background-repeat: no-repeat;
+    background-position: 15px center;
+
+    //States
+    &:hover {
+      background-color: var(--color-border);
+    }
+    &:focus {
+      outline: none;
+      color: var(--color-text-primary);
+      background-color: var(--color-border);
+      padding: 8px 15px;
+      background-image: none;
+    }
+  }
+
+  //Menu list of options
+  .list-item {
+    list-style: none;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    //Button (all space)
+    &__button {
+      width: 100%;
+      padding: 8px 12px 8px 8px;
+
+      display: inline-flex;
+      justify-content: space-between;
+
+      font-size: var(--size-text-main);
+
+      font-size: var(--size-text-main);
+      color: var(--color-text-primary);
+      background-color: var(--color-surface);
+
+      //States
+      &:hover {
+        background-color: var(--color-border);
+      }
+
+      &:focus {
+        outline: none;
+        background-color: var(--color-border);
+      }
+    }
+
+    //Active option (always first)
+    &:first-child {
+      .list-item__button {
+        font-weight: 600;
+      }
+    }
+
+    &:last-child {
+      .list-item__button {
+        border-radius: 0 0 var(--size-border-radius) var(--size-border-radius);
+      }
+    }
+
+    //Labels inside button
+    &__value {
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+  }
+}
