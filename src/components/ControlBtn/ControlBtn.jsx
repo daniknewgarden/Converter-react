@@ -4,6 +4,7 @@ import "./ControlBtn.scss";
 
 export const ControlBtn = ({
   label,
+  active,
   icon,
   iconEnabled,
   reversed,
@@ -36,9 +37,8 @@ export const ControlBtn = ({
   };
 
   //Class names
-  const classNames = `control-button ${reversed ? "reversed" : ""} ${
-    icon ? "icon" : ""
-  } ${big ? "big" : ""}`;
+  const classNames = `control-button ${reversed ? "reversed" : ""}
+  ${icon ? "icon" : ""} ${big ? "big" : ""} ${active ? "active" : ""}`;
 
   return (
     <>

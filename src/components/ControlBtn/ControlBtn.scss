@@ -16,7 +16,8 @@
   border-radius: 8px;
 
   //States
-  &:hover {
+  &:hover,
+  &.active {
     background-color: var(--color-border);
   }
   &:focus {
