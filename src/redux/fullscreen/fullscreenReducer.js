@@ -10,7 +10,7 @@ const fullscreenReducer = (state = initialState, action) => {
     case Actions.APPLY_FULLSCREEN:
       return { ...state, fullscreen: action.payload };
     default:
-      return initialState;
+      return state;
   }
 };
 
