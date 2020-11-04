@@ -73,5 +73,5 @@ Button allows you to toggle change somethink.
 #### Props (name, type, description)
 **label** - type: string, your text in button.  
 **icon** - paste here your imported icon.   
-You can add dynamic iconlike here: `<ControlBtn icon={ state ? enabledIcon : normalIcon } />`
+You can add dynamic iconlike here: `<ControlBtn icon={ state ? enabledIcon : normalIcon } />`  
 **reversed** - boolean, change padding side (default side: left).  
