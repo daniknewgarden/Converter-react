@@ -70,8 +70,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ## Components guide 🧩
 ###  ControlBtn
 Button allows you to toggle change somethink.
-#### Props (name, type, description)
+#### Props (name, type, description)  
+**onClick** - callback function  
 **label** - type: string, your text in button.  
-**icon** - paste here your imported icon.   
+**icon** - paste here your imported icon.  
 You can add dynamic iconlike here: `<ControlBtn icon={ state ? enabledIcon : normalIcon } />`  
-**reversed** - boolean, change padding side (default side: left).  
+**reversed** - type: boolean, change padding side (default side: left).  
+**big** - type: boolean, change font size to more bigger. 
+
