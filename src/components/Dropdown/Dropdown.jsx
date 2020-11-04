@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import { useClickOutside } from "../../hooks/useClickOutside";
+//Components
 import { ControlBtn } from "../ControlBtn/ControlBtn";
 //Styles
 import "./Dropdown.scss";
@@ -22,6 +24,10 @@ export const Dropdown = ({ list = testArr }) => {
     setOpened(!opened);
   };
 
+  //Click outside (when menu opened)
+  const menuRef = useRef();
+  useClickOutside(menuRef, toggleOpened);
+
   //Dropdown options items
   const options = list.map((item, index) => {
     return (
@@ -41,15 +47,14 @@ export const Dropdown = ({ list = testArr }) => {
     <section className="dropdown">
       <ControlBtn
         label="Hello"
-        icon={down}
-        iconEnabled={up}
+        icon={opened ? up : down}
         reversed={true}
         big={true}
         onClick={toggleOpened}
         active={opened}
       />
       {opened && (
-        <div className="dropdown__menu">
+        <div className="dropdown__menu" ref={menuRef}>
           <input
             type="search"
             className="dropdown__menu-search"
