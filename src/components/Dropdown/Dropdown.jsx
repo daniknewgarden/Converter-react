@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useClickOutside } from "../../hooks/useClickOutside";
 //Components
 import { ControlBtn } from "../ControlBtn/ControlBtn";
@@ -8,36 +8,38 @@ import "./Dropdown.scss";
 import down from "../../icons/down.svg";
 import up from "../../icons/up.svg";
 
-//TODO: remove me
-let testArr = [
-  { value: "EUR", name: "Euro", icon: "€" },
-  { value: "RUB", name: "Russian Ruble", icon: "₽" },
-  { value: "USD", name: "US Dollar", icon: "$" },
-];
-
 //Dropdown component
-export const Dropdown = ({ list = testArr }) => {
+export const Dropdown = ({ list, defaultOptionIndex, onChoose }) => {
   const [opened, setOpened] = useState(false);
+  const [option, setOption] = useState(list[defaultOptionIndex]);
+
+  useEffect(() => {
+    onChoose(option);
+  }, [option]);
 
   //Open function
   const toggleOpened = () => {
     setOpened(!opened);
   };
 
+  //Choose option
+  const chooseOption = (item) => {
+    setOption(item);
+    toggleOpened();
+  };
+
   //Click outside (when menu opened)
   const menuRef = useRef();
   useClickOutside(menuRef, toggleOpened);
-
-  //Choose option
-  const chooseOption = () => {
-    toggleOpened();
-  };
 
   //Dropdown options items
   const options = list.map((item, index) => {
     return (
       <li className="list-item" key={index}>
-        <button className="list-item__button" onClick={() => chooseOption()}>
+        <button
+          className="list-item__button"
+          onClick={() => chooseOption(item)}
+        >
           <span className="list-item__name">{item.name}</span>
           <span>
             <span className="list-item__value">{item.value}</span>
@@ -51,7 +53,7 @@ export const Dropdown = ({ list = testArr }) => {
   return (
     <section className="dropdown">
       <ControlBtn
-        label="Hello"
+        label={option.name}
         icon={opened ? up : down}
         reversed={true}
         big={true}

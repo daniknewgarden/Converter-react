@@ -14,6 +14,7 @@
     display: inline-block;
 
     position: absolute;
+    z-index: 3;
 
     width: clamp(220px, 51.85%, 280px);
 
