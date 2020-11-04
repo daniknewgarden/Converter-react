@@ -42,16 +42,14 @@ export const Header = () => {
         {fullscreen && (
           <ControlBtn
             label={themeLabel}
-            icon={down}
-            iconEnabled={up}
+            icon={darkTheme ? down : up}
             reversed={true}
             onClick={() => changeTheme(!darkTheme)}
           />
         )}
         <ControlBtn
           label={modeLabel}
-          icon={maximize}
-          iconEnabled={minimize}
+          icon={fullscreen ? minimize : maximize}
           onClick={() => changeMode(!fullscreen)}
         />
       </div>

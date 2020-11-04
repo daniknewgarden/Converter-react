@@ -2,30 +2,12 @@ import React, { useState, useEffect } from "react";
 //Styles
 import "./ControlBtn.scss";
 
-export const ControlBtn = ({
-  label,
-  active,
-  icon,
-  iconEnabled,
-  reversed,
-  big,
-  onClick,
-}) => {
+export const ControlBtn = ({ label, active, icon, reversed, big, onClick }) => {
   const [enabled, setEnabled] = useState(false);
-  const [background, setBackground] = useState(icon);
 
   const styles = {
-    backgroundImage: `url(${background})`,
+    backgroundImage: `url(${icon})`,
   };
-
-  //Dynamic icon change
-  useEffect(() => {
-    if (enabled && iconEnabled) {
-      setBackground(iconEnabled);
-    } else {
-      setBackground(icon);
-    }
-  }, [enabled, icon, iconEnabled]);
 
   //onClick callback
   const toggleClick = () => {

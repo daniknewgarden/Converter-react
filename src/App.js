@@ -17,6 +17,7 @@ import upIcon from "./icons/up.svg";
 import { ControlBtn } from "./components/ControlBtn/ControlBtn";
 import { AddBtn } from "./components/AddBtn/AddBtn";
 import { Header } from "./components/Header/Header";
+import { Dropdown } from "./components/Dropdown/Dropdown";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,8 +48,6 @@ function App() {
         break;
     }
   };
-
-  //FIXME: API request don't working (see ./redux/API/)
   //Rates
   const ratesData = useSelector((state) => state.ratesData);
 
@@ -78,6 +77,10 @@ function App() {
       <div className="fragment">
         <h2>Header</h2>
         <Header />
+      </div>
+      <div className="fragment">
+        <h2>Dropdown</h2>
+        <Dropdown />
       </div>
     </div>
   );
