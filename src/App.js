@@ -18,6 +18,7 @@ import { ControlBtn } from "./components/ControlBtn/ControlBtn";
 import { AddBtn } from "./components/AddBtn/AddBtn";
 import { Header } from "./components/Header/Header";
 import { Dropdown } from "./components/Dropdown/Dropdown";
+import { Currency } from "./components/Currency/Currency";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +60,13 @@ function App() {
     getData();
   }, []);
 
+  //TODO: remove me
+  let testArr = [
+    { value: "EUR", name: "Euro", icon: "€" },
+    { value: "RUB", name: "Russian Ruble", icon: "₽" },
+    { value: "USD", name: "US Dollar", icon: "$" },
+  ];
+
   return (
     <div className={`App ${darkTheme ? "dark" : "light"}`}>
       <div className="fragment">
@@ -80,7 +88,16 @@ function App() {
       </div>
       <div className="fragment">
         <h2>Dropdown</h2>
-        <Dropdown />
+        <Dropdown
+          list={testArr}
+          defaultOptionIndex={0}
+          onChoose={(option) => console.log(option)}
+        />
+      </div>
+      <div className="fragment">
+        <h2>Currency</h2>
+        <Currency />
+        <Currency />
       </div>
     </div>
   );

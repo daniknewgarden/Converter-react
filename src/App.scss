@@ -4,6 +4,7 @@
   --size-text-label: 13px;
   --size-text-main: 15px;
   --size-text-title: 17px;
+  --size-text-input: 24px;
   --size-border-radius: 12px;
 
   //Animations
@@ -43,6 +44,7 @@
   }
 
   .fragment {
+    position: relative;
     margin-bottom: 25px;
     h2 {
       margin: 0 0 15px 0;

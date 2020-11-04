@@ -1,0 +1,72 @@
+//Styles for Currency component
+.currency {
+  //TODO: remove me
+  width: 280px;
+
+  position: relative;
+
+  //Local variables
+  --color-local-background: var(--color-surface);
+
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-local-background);
+
+  //States
+  &:focus {
+    outline: none;
+    --color-local-background: var(--color-border);
+  }
+
+  //Top part
+  &__top-part {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 8px 8px 0 8px;
+  }
+
+  //Remove btn
+  &__remove-btn {
+    --size: 32px;
+
+    width: var(--size);
+    height: var(--size);
+
+    border-radius: 8px;
+    background-color: var(--color-local-background);
+    background-image: url(./icons/minus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    //States
+  }
+
+  //Bottom part
+  &__bottom-part {
+    padding: 16px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  //Input
+  &__icon {
+    margin-right: 10px;
+
+    font-size: var(--size-text-input);
+    color: var(--color-text-primary);
+  }
+
+  &__input {
+    max-width: 90%;
+    font-size: var(--size-text-input);
+
+    color: var(--color-text-primary);
+    background-color: var(--color-local-background);
+
+    //States
+    &:focus {
+      outline: none;
+    }
+  }
+}
