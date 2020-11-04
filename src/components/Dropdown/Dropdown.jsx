@@ -28,11 +28,16 @@ export const Dropdown = ({ list = testArr }) => {
   const menuRef = useRef();
   useClickOutside(menuRef, toggleOpened);
 
+  //Choose option
+  const chooseOption = () => {
+    toggleOpened();
+  };
+
   //Dropdown options items
   const options = list.map((item, index) => {
     return (
       <li className="list-item" key={index}>
-        <button className="list-item__button">
+        <button className="list-item__button" onClick={() => chooseOption()}>
           <span className="list-item__name">{item.name}</span>
           <span>
             <span className="list-item__value">{item.value}</span>
