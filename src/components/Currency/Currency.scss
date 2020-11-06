@@ -12,6 +12,10 @@
   background-color: var(--color-local-background);
 
   //States
+  &:hover &__remove-btn {
+    opacity: 1;
+  }
+
   &:focus {
     outline: none;
     --color-local-background: var(--color-border);
@@ -27,6 +31,8 @@
 
   //Remove btn
   &__remove-btn {
+    opacity: 0;
+
     --size: 32px;
 
     width: var(--size);
@@ -39,6 +45,11 @@
     background-position: center;
 
     //States
+    &:focus {
+      outline: none;
+      opacity: 1;
+      background-color: var(--color-border);
+    }
   }
 
   //Bottom part

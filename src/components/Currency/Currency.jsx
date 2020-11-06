@@ -4,7 +4,10 @@ import { Dropdown } from "../Dropdown/Dropdown";
 //Styles
 import "./Currency.scss";
 
-//TODO: remove me
+//TODO:
+// Add onClick input focus
+
+//FIXME: remove me
 let testArr = [
   { value: "EUR", name: "Euro", icon: "€" },
   { value: "RUB", name: "Russian Ruble", icon: "₽" },
