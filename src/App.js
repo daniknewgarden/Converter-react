@@ -69,7 +69,7 @@ function App() {
 
   return (
     <div className={`App ${darkTheme ? "dark" : "light"}`}>
-      <div className="fragment">
+      {/* <div className="fragment">
         <h2>Control button</h2>
         <ControlBtn
           label="Default"
@@ -98,7 +98,21 @@ function App() {
         <h2>Currency</h2>
         <Currency />
         <Currency />
-      </div>
+      </div> */}
+      <section className="surface">
+        <Header />
+        <main className="content">
+          <div className="content__column column-base">
+            <Currency />
+          </div>
+          <div className="content__column">
+            <Currency />
+            <Currency />
+            <AddBtn />
+          </div>
+          <AddBtn />
+        </main>
+      </section>
     </div>
   );
 }

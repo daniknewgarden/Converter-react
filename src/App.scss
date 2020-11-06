@@ -38,6 +38,10 @@
   text-align: center;
   min-height: 100vh;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &.dark {
     background-color: var(--color-body);
     color: #fff;
@@ -48,6 +52,25 @@
     margin-bottom: 25px;
     h2 {
       margin: 0 0 15px 0;
+    }
+  }
+
+  .surface {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--size-border-radius);
+    width: 600px;
+    .content {
+      display: flex;
+      justify-content: space-between;
+
+      &__column {
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+
+        border-right: 1px solid var(--color-border);
+      }
     }
   }
 }
