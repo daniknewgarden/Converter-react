@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 //Hooks
 import { useClickOutside } from "../../hooks/useClickOutside";
-import { useFocusOutside } from "../../hooks/useFocusOutside";
 //Components
 import { ControlBtn } from "../ControlBtn/ControlBtn";
 //Styles
@@ -32,7 +31,6 @@ export const Dropdown = ({ list, defaultOptionIndex, onChoose }) => {
 
   //Close menu (if click or focus outside)
   const menuRef = useRef();
-  useFocusOutside(menuRef, toggleOpened);
   useClickOutside(menuRef, toggleOpened);
 
   //Dropdown options items
