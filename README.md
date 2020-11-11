@@ -43,3 +43,34 @@ reversed | boolean  | Change padding side (default side: left).
  big     | boolean  | Change font size to more bigger.
  active  | boolean  | If you need to has focus button state.
 
+## Hooks guide ⚓
+### useClickOutside 👆
+**Allows you to tracks clicks outside the item to do somethink.**
+Argument   | Type     | Description
+---------|----------|----------------------
+ ref   | useRef() | React link for your item.
+callback  | function | Callback funtion.  
+
+**Example**  
+```JSX
+import React, { useRef } from "react";
+import { useClickOutside } from "way to useClickOutside";
+
+//Component
+export const Dropdown = () => {
+ const [opened, setOpened] = useState(false);
+ 
+ const toggleOpened = () => {
+  setOpened(!opened)
+ }
+ 
+ //Click outside track
+ const menuRef = useRef();
+ useClickOutside(menuRef, toggleOpened);
+ 
+ return(
+  <button>{opened ? 'Close' : 'Open'} menu </button>
+  {opened && <div ref={menuRef}>Menu</div>}
+ )
+}
+```
