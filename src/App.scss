@@ -34,13 +34,22 @@
   }
 }
 
+//Smooth theme switching
+body.theme-switch,
+body.theme-switch *,
+body.theme-switch *:before,
+body.theme-switch *:after {
+  transition: all 500ms !important;
+  transition-delay: 0 !important;
+}
+
 .App {
   text-align: center;
   min-height: 100vh;
+  color: var(--color-text-primary);
 
   &.dark {
     background-color: var(--color-body);
-    color: #fff;
   }
 
   .fragment {

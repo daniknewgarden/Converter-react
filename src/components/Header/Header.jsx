@@ -26,7 +26,12 @@ export const Header = () => {
   //Dark theme
   const darkTheme = useSelector((state) => state.theme.darkTheme);
   const changeTheme = (theme) => {
+    //Smooth theme switching
+    document.body.classList.add("theme-switch");
     dispatch(applyTheme(theme));
+    setTimeout(() => {
+      document.body.classList.remove("theme-switch");
+    }, 500);
   };
 
   //Control buttons labels
