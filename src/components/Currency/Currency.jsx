@@ -56,6 +56,7 @@ export const Currency = ({ array, icon, remove }) => {
         <input
           name="currency"
           type="number"
+          min="0"
           className="currency__input"
           ref={inputRef}
         />
