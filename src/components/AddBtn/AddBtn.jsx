@@ -2,12 +2,9 @@ import React, { useState } from "react";
 //Styles
 import "./AddBtn.scss";
 export const AddBtn = ({
-  label,
   onClick,
-  icon,
-  iconEnabled,
   vertical,
-  borderSide,
+  borderSide
 }) => {
   const click = (params) => {
     if (onClick) {
