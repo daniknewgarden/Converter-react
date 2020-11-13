@@ -2,6 +2,7 @@
 
 ## Hi! This is the most cozy converter ever 😊.
 
+![Screenshot](https://i.imgur.com/7IZtdwe.png) <br/>
 [**See demo**]() <br/>
 
 **Here you can read how to run it, and how to use all components. Lets start 👇**<br/>
