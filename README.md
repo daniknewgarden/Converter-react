@@ -34,7 +34,7 @@ Loading...
 ## Components guide 🧩
 
 ### ControlBtn
-
+![Screenshot](https://i.imgur.com/hdLIXFU.png) <br/>
 **Button allows you to toggle change something.** <br/>
 
 | Props    | Type     | Description                               |
@@ -48,7 +48,8 @@ Loading...
 
 ### AddBtn
 
-**Button allows you to call something on click.** <br/>
+![Screenshot](https://i.imgur.com/aNv2ieH.png) <br/>
+**Button allows you to call something on click.**
 
 | Props   | Type     | Description        |
 | ------- | -------- | ------------------ |
