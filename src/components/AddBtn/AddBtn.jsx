@@ -3,22 +3,22 @@ import React, { useState } from "react";
 import "./AddBtn.scss";
 export const AddBtn = ({
   label,
-  callback,
+  onClick,
   icon,
   iconEnabled,
   vertical,
   borderSide,
 }) => {
-  const onClick = (params) => {
-    if (callback) {
-      callback();
+  const click = (params) => {
+    if (onClick) {
+      onClick();
     }
   };
 
   const classNames = `add-button ${vertical ? "vertical" : ""}`;
 
   return (
-    <button className={classNames} onClick={onClick}>
+    <button className={classNames} onClick={click}>
       {" "}
     </button>
   );

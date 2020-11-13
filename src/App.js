@@ -19,6 +19,8 @@ import { AddBtn } from "./components/AddBtn/AddBtn";
 import { Header } from "./components/Header/Header";
 import { Dropdown } from "./components/Dropdown/Dropdown";
 import { Currency } from "./components/Currency/Currency";
+import { BaseColumn } from "./components/Columns/BaseColumn";
+import { NormalColumn } from "./components/Columns/NormalColumn";
 
 function App() {
   const dispatch = useDispatch();
@@ -98,6 +100,14 @@ function App() {
         <h2>Currency</h2>
         <Currency />
         <Currency />
+      </div>
+      <div className="fragment">
+        <h2>Base column</h2>
+        <BaseColumn />
+      </div>
+      <div className="fragment">
+        <h2>Normal column</h2>
+        <NormalColumn />
       </div>
     </div>
   );
