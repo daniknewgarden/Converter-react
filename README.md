@@ -46,6 +46,14 @@ Loading...
 | big      | boolean  | Change font size to more bigger.          |
 | active   | boolean  | If you need to has focus button state.    |
 
+### AddBtn
+
+**Button allows you to call something on click.** <br/>
+
+| Props   | Type     | Description        |
+| ------- | -------- | ------------------ |
+| onClick | function | Callback function. |
+
 ## Hooks guide ⚓
 
 ### useClickOutside 👆
