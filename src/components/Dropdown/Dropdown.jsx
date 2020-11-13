@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+//Hooks
 import { useClickOutside } from "../../hooks/useClickOutside";
 //Components
 import { ControlBtn } from "../ControlBtn/ControlBtn";
@@ -28,7 +29,7 @@ export const Dropdown = ({ list, defaultOptionIndex, onChoose }) => {
     toggleOpened();
   };
 
-  //Click outside (when menu opened)
+  //Close menu (if click or focus outside)
   const menuRef = useRef();
   useClickOutside(menuRef, toggleOpened);
 
@@ -61,7 +62,15 @@ export const Dropdown = ({ list, defaultOptionIndex, onChoose }) => {
         active={opened}
       />
       {opened && (
-        <div className="dropdown__menu" ref={menuRef}>
+        <div
+          className="dropdown__menu"
+          ref={menuRef}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget)) {
+              toggleOpened();
+            }
+          }}
+        >
           <input
             type="search"
             className="dropdown__menu-search"
