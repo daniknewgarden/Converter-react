@@ -34,6 +34,7 @@ Loading...
 ## Components guide 🧩
 
 ### ControlBtn
+
 ![Screenshot](https://i.imgur.com/hdLIXFU.png) <br/>
 **Button allows you to toggle change something.** <br/>
 
@@ -54,6 +55,32 @@ Loading...
 | Props   | Type     | Description        |
 | ------- | -------- | ------------------ |
 | onClick | function | Callback function. |
+
+### Dropdown
+
+![Screenshot](https://i.imgur.com/Jri3TyE.png) <br/>
+**Allows you to choose some option.** <br/>
+
+| Props              | Type     | Description                          |
+| ------------------ | -------- | ------------------------------------ |
+| list               | array    | Array of options to select.          |
+| defaultOptionIndex | number   | Selected option be default.          |
+| onChoose           | function | Function receiving selected element. |
+
+### Currency
+
+![Screenshot](https://i.imgur.com/JycOghD.png) <br/>
+**Currency card.** <br/>
+
+| Props     | Type     | Description                                          |
+| --------- | -------- | ---------------------------------------------------- |
+| canRemove | boolean  | Can it be deleted?                                   |
+| remove    | function | Function for card removing (on click remove button). |
+
+### Header
+
+![Screenshot](https://i.imgur.com/G3yYkRe.png) <br/>
+**Header of the App. Here you can change screen mode and theme**
 
 ## Hooks guide ⚓
 

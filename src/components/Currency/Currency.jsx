@@ -11,7 +11,7 @@ let testArr = [
   { value: "USD", name: "US Dollar", icon: "$" },
 ];
 
-export const Currency = ({ array, icon, canRemove, remove }) => {
+export const Currency = ({ array, canRemove, remove }) => {
   const [currency, setCurrency] = useState({});
 
   //Input focus
