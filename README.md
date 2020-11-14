@@ -11,7 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## How to run? 🏃‍♂️
 
-In the project directory, you can run:
+Ready, set, go!🤣<br>
+Seriously, in the project directory, you can run:
 
 ### `npm start`
 
@@ -73,10 +74,11 @@ Loading...
 ![Screenshot](https://i.imgur.com/JycOghD.png) <br/>
 **Currency card.** <br/>
 
-| Props     | Type     | Description                                          |
-| --------- | -------- | ---------------------------------------------------- |
-| canRemove | boolean  | Can it be deleted?                                   |
-| remove    | function | Function for card removing (on click remove button). |
+| Props      | Type     | Description                                          |
+| ---------- | -------- | ---------------------------------------------------- |
+| canRemove  | boolean  | Can it be deleted?                                   |
+| remove     | function | Function for card removing (on click remove button). |
+| baseStatus | boolean  | Only one currency can be base.                       |
 
 ### Header
 
