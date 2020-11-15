@@ -8,6 +8,13 @@
   border-bottom: 1px solid var(--color-border);
   background-color: var(--color-local-background);
 
+  //Variants
+  &-base {
+    height: 100%;
+    border-bottom: none;
+    border-radius: 0 0 0 var(--size-border-radius);
+  }
+
   //States
   &:hover &__remove-btn {
     opacity: 1;

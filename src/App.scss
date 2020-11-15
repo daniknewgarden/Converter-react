@@ -73,13 +73,7 @@ body.theme-switch *:after {
       display: flex;
       justify-content: space-between;
 
-      &__column {
-        max-width: 280px;
-        display: flex;
-        flex-direction: column;
-
-        border-right: 1px solid var(--color-border);
-      }
+      
     }
   }
 }

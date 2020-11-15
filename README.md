@@ -2,6 +2,7 @@
 
 ## Hi! This is the most cozy converter ever 😊.
 
+![Screenshot](https://i.imgur.com/7IZtdwe.png) <br/>
 [**See demo**]() <br/>
 
 **Here you can read how to run it, and how to use all components. Lets start 👇**<br/>
@@ -10,7 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## How to run? 🏃‍♂️
 
-In the project directory, you can run:
+Ready, set, go!🤣<br>
+Seriously, in the project directory, you can run:
 
 ### `npm start`
 
@@ -35,6 +37,7 @@ Loading...
 
 ### ControlBtn
 
+![Screenshot](https://i.imgur.com/hdLIXFU.png) <br/>
 **Button allows you to toggle change something.** <br/>
 
 | Props    | Type     | Description                               |
@@ -45,6 +48,42 @@ Loading...
 | reversed | boolean  | Change padding side (default side: left). |
 | big      | boolean  | Change font size to more bigger.          |
 | active   | boolean  | If you need to has focus button state.    |
+
+### AddBtn
+
+![Screenshot](https://i.imgur.com/aNv2ieH.png) <br/>
+**Button allows you to call something on click.**
+
+| Props   | Type     | Description        |
+| ------- | -------- | ------------------ |
+| onClick | function | Callback function. |
+
+### Dropdown
+
+![Screenshot](https://i.imgur.com/Jri3TyE.png) <br/>
+**Allows you to choose some option.** <br/>
+
+| Props              | Type     | Description                          |
+| ------------------ | -------- | ------------------------------------ |
+| list               | array    | Array of options to select.          |
+| defaultOptionIndex | number   | Selected option be default.          |
+| onChoose           | function | Function receiving selected element. |
+
+### Currency
+
+![Screenshot](https://i.imgur.com/JycOghD.png) <br/>
+**Currency card.** <br/>
+
+| Props      | Type     | Description                                          |
+| ---------- | -------- | ---------------------------------------------------- |
+| canRemove  | boolean  | Can it be deleted?                                   |
+| remove     | function | Function for card removing (on click remove button). |
+| baseStatus | boolean  | Only one currency can be base.                       |
+
+### Header
+
+![Screenshot](https://i.imgur.com/G3yYkRe.png) <br/>
+**Header of the App. Here you can change screen mode and theme**
 
 ## Hooks guide ⚓
 

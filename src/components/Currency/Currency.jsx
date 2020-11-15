@@ -4,9 +4,6 @@ import { Dropdown } from "../Dropdown/Dropdown";
 //Styles
 import "./Currency.scss";
 
-//TODO:
-// Add onClick input focus
-
 //FIXME: remove me
 let testArr = [
   { value: "EUR", name: "Euro", icon: "€" },
@@ -14,20 +11,19 @@ let testArr = [
   { value: "USD", name: "US Dollar", icon: "$" },
 ];
 
-export const Currency = ({ array, icon, remove }) => {
+export const Currency = ({ array, canRemove, remove, baseStatus }) => {
   const [currency, setCurrency] = useState({});
 
   //Input focus
   const inputRef = useRef();
 
   const focusElem = (ref) => {
-    console.log("click");
     ref.current.focus();
   };
 
   return (
     <section
-      className="currency"
+      className={`currency ${baseStatus ? "currency-base" : ""}`}
       tabIndex="0"
       onKeyDown={(e) => {
         if (
@@ -44,7 +40,9 @@ export const Currency = ({ array, icon, remove }) => {
           defaultOptionIndex={0}
           onChoose={(currency) => setCurrency(currency)}
         />
-        <button className="currency__remove-btn"></button>
+        {canRemove && (
+          <button className="currency__remove-btn" onClick={remove}></button>
+        )}
       </div>
       <div
         className="currency__bottom-part"

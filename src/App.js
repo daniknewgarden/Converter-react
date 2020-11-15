@@ -19,6 +19,8 @@ import { AddBtn } from "./components/AddBtn/AddBtn";
 import { Header } from "./components/Header/Header";
 import { Dropdown } from "./components/Dropdown/Dropdown";
 import { Currency } from "./components/Currency/Currency";
+import { BaseColumn } from "./components/Columns/BaseColumn";
+import { Column, NormalColumn } from "./components/Columns/Column";
 
 function App() {
   const dispatch = useDispatch();
@@ -69,47 +71,11 @@ function App() {
 
   return (
     <div className={`App ${darkTheme ? "dark" : "light"}`}>
-      {/* <div className="fragment">
-        <h2>Control button</h2>
-        <ControlBtn
-          label="Default"
-          icon={downIcon}
-          iconEnabled={upIcon}
-          reversed={true}
-        />
-      </div>
-      <div className="fragment">
-        <h2>Add button</h2>
-        <AddBtn label="Default" icon={downIcon} />
-      </div>
-      <div className="fragment">
-        <h2>Header</h2>
-        <Header />
-      </div>
-      <div className="fragment">
-        <h2>Dropdown</h2>
-        <Dropdown
-          list={testArr}
-          defaultOptionIndex={0}
-          onChoose={(option) => console.log(option)}
-        />
-      </div>
-      <div className="fragment">
-        <h2>Currency</h2>
-        <Currency />
-        <Currency />
-      </div> */}
       <section className="surface">
         <Header />
         <main className="content">
-          <div className="content__column column-base">
-            <Currency />
-          </div>
-          <div className="content__column">
-            <Currency />
-            <Currency />
-            <AddBtn />
-          </div>
+          <BaseColumn />
+          <Column />
           <AddBtn />
         </main>
       </section>

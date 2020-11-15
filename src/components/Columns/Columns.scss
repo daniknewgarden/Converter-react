@@ -1,0 +1,8 @@
+//Styles for columns components
+.surface__column {
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid var(--color-border);
+}
