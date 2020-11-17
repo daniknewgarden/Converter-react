@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./App.scss";
 //Redux actions
@@ -69,14 +69,27 @@ function App() {
     { value: "USD", name: "US Dollar", icon: "$" },
   ];
 
+  //Normal columns
+  const [columns, setColumns] = useState(["1"]);
+
+  const addColumn = () => {
+    setColumns([...columns, columns.length + 1]);
+  };
+
+  useEffect(() => {
+    console.log(columns);
+  }, [columns]);
+
   return (
     <div className={`App ${darkTheme ? "dark" : "light"}`}>
       <section className="surface">
         <Header />
         <main className="content">
           <BaseColumn />
-          <Column />
-          <AddBtn />
+          {columns.map((value) => {
+            return <Column key={value} />;
+          })}
+          <AddBtn onClick={addColumn} />
         </main>
       </section>
     </div>

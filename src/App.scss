@@ -44,6 +44,7 @@ body.theme-switch *:after {
 }
 
 .App {
+  padding: 0 75px;
   text-align: center;
   min-height: 100vh;
   color: var(--color-text-primary);
@@ -68,12 +69,10 @@ body.theme-switch *:after {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--size-border-radius);
-    width: 600px;
+    min-width: 600px;
     .content {
       display: flex;
       justify-content: space-between;
-
-      
     }
   }
 }
