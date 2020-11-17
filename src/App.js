@@ -54,12 +54,12 @@ function App() {
   //Rates
   const ratesData = useSelector((state) => state.ratesData);
 
-  const getData = () => {
-    dispatch(fetchRates());
+  const getData = (base) => {
+    dispatch(fetchRates(base));
   };
 
   useEffect(() => {
-    getData();
+    getData("USD");
   }, []);
 
   //TODO: remove me

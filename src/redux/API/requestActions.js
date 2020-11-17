@@ -26,12 +26,12 @@ export const errorFetchRates = (error) => {
 
 //Async API request
 //TODO: add base currency argument to link
-export const fetchRates = () => async (dispatch) => {
+export const fetchRates = (base) => async (dispatch) => {
   dispatch(startFetchRates());
 
   try {
     const data = await fetch(
-      "https://api.exchangeratesapi.io/latest?base=USD"
+      `https://api.exchangeratesapi.io/latest?base=${base}`
     ).then((res) => res.json());
     dispatch(finishFetchRates(data));
   } catch (error) {
