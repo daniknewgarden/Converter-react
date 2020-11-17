@@ -2,7 +2,9 @@
 
 ## Hi! This is the most cozy converter ever 😊.
 
-![Screenshot](https://i.imgur.com/7IZtdwe.png) <br/>
+<!-- ![Screenshot](https://i.imgur.com/7IZtdwe.png) <br/> -->
+
+![Video](https://i.imgur.com/8hOcAQu.gif) <br/>
 [**See demo**]() <br/>
 
 **Here you can read how to run it, and how to use all components. Lets start 👇**<br/>
@@ -79,6 +81,8 @@ Loading...
 | canRemove  | boolean  | Can it be deleted?                                   |
 | remove     | function | Function for card removing (on click remove button). |
 | baseStatus | boolean  | Only one currency can be base.                       |
+
+**Convert algorithm. 👨‍🔬**
 
 ### Header
 
