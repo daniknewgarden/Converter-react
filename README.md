@@ -9,6 +9,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Download 👇
+### `git clone git@github.com:daniknewgarden/react-converter.git`
+Install dependencies 🔌
+### `npm install`
+
 ## How to run? 🏃‍♂️
 
 Ready, set, go!🤣<br>
