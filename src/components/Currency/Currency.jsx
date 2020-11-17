@@ -1,4 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+//Redux
+import { useSelector, useDispatch } from "react-redux";
+import { updateBaseValue } from "../../redux/baseValue/baseValueActions";
 //Components
 import { Dropdown } from "../Dropdown/Dropdown";
 //Styles
@@ -6,16 +9,34 @@ import "./Currency.scss";
 
 //FIXME: remove me
 let testArr = [
-  { value: "EUR", name: "Euro", icon: "€" },
-  { value: "RUB", name: "Russian Ruble", icon: "₽" },
-  { value: "USD", name: "US Dollar", icon: "$" },
+  { value: "EUR", name: "Euro", icon: "€", rate: 1 },
+  { value: "RUB", name: "Russian Ruble", icon: "₽", rate: 90.56 },
+  { value: "USD", name: "US Dollar", icon: "$", rate: 1.18 },
 ];
 
-export const Currency = ({ array, canRemove, remove, baseStatus }) => {
+export const Currency = ({ baseStatus, canRemove, remove }) => {
+  const dispatch = useDispatch();
+
+  const baseValue = useSelector((state) => state.baseValue.value);
+
   const [currency, setCurrency] = useState({});
+  const [value, setValue] = useState(1);
+
+  useEffect(() => {
+    const num = baseStatus ? baseValue : baseValue * currency.rate;
+
+    setValue(Math.round(num * 100) / 100);
+  }, [baseValue, currency]);
 
   //Input focus
   const inputRef = useRef();
+
+  const updateBase = (event) => {
+    const num = baseStatus
+      ? event.target.value
+      : event.target.value / currency.rate;
+    dispatch(updateBaseValue(num));
+  };
 
   const focusElem = (ref) => {
     ref.current.focus();
@@ -55,8 +76,11 @@ export const Currency = ({ array, canRemove, remove, baseStatus }) => {
           name="currency"
           type="number"
           min="0"
+          max="999999999999999"
           className="currency__input"
           ref={inputRef}
+          value={value}
+          onChange={(event) => updateBase(event)}
         />
       </div>
     </section>

@@ -9,6 +9,7 @@ export const Column = ({}) => {
 
   useEffect(() => {
     currencies.length < 2 ? setCanRemove(false) : setCanRemove(true);
+    console.log(currencies);
   }, [currencies]);
 
   const addCurrency = () => {
@@ -23,12 +24,13 @@ export const Column = ({}) => {
 
   return (
     <div className="surface__column">
-      {currencies.map((value, index) => {
+      {currencies.map((value) => {
         return (
           <Currency
             key={value}
             remove={() => removeCurrency(value)}
             canRemove={canRemove}
+            baseStatus={false}
           />
         );
       })}
