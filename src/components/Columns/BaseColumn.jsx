@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Currency } from "../Currency/Currency";
 import "./Columns.scss";
 
-export const BaseColumn = ({}) => {
+export const BaseColumn = ({ fullscreen }) => {
+  const classNames = `surface__column surface__column-base ${
+    fullscreen ? "fullscreen" : ""
+  }`;
+
   return (
-    <div className="surface__column surface__column-base">
+    <div className={classNames}>
       <Currency baseStatus={true} />
     </div>
   );

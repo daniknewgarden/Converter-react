@@ -59,7 +59,7 @@ function App() {
   };
 
   useEffect(() => {
-    getData("USD");
+    getData("EUR");
   }, []);
 
   //TODO: remove me
@@ -81,13 +81,17 @@ function App() {
   }, [columns]);
 
   return (
-    <div className={`App ${darkTheme ? "dark" : "light"}`}>
-      <section className="surface">
-        <Header />
+    <div
+      className={`App ${darkTheme ? "dark" : "light"} ${
+        fullscreen ? "fullscreen" : ""
+      }`}
+    >
+      <section className={`surface ${fullscreen ? "fullscreen" : ""}`}>
+        <Header fullscreen={fullscreen} />
         <main className="content">
-          <BaseColumn />
+          <BaseColumn fullscreen={fullscreen} />
           {columns.map((value) => {
-            return <Column key={value} />;
+            return <Column key={value} fullscreen={fullscreen} />;
           })}
           <AddBtn onClick={addColumn} />
         </main>

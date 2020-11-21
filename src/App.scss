@@ -44,7 +44,7 @@ body.theme-switch *:after {
 }
 
 .App {
-  padding: 0 75px;
+  padding: 75px;
   text-align: center;
   min-height: 100vh;
   color: var(--color-text-primary);
@@ -53,8 +53,12 @@ body.theme-switch *:after {
   justify-content: center;
   align-items: center;
 
+  //States
   &.dark {
     background-color: var(--color-body);
+  }
+  &.fullscreen {
+    padding: 0;
   }
 
   .fragment {
@@ -70,9 +74,19 @@ body.theme-switch *:after {
     border: 1px solid var(--color-border);
     border-radius: var(--size-border-radius);
     min-width: 600px;
+
+    //States
+    &.fullscreen {
+      min-width: 100%;
+      min-height: 100vh;
+
+      .content {
+        min-height: 100vh;
+      }
+    }
     .content {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: nowrap;
     }
   }
 }

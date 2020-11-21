@@ -1,8 +1,18 @@
 //Styles for columns components
 .surface__column {
-  max-width: 280px;
+  flex: 2 0 280px;
+  min-width: 280px;
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   border-right: 1px solid var(--color-border);
+
+  &-base {
+    &.fullscreen {
+      flex: 0 0 320px;
+      min-width: 320px;
+    }
+  }
 }

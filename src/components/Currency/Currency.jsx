@@ -72,16 +72,18 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
         <label name="currency" className="currency__icon">
           {currency.icon}
         </label>
-        <input
-          name="currency"
-          type="number"
-          min="0"
-          max="999999999999999"
-          className="currency__input"
-          ref={inputRef}
-          value={value}
-          onChange={(event) => updateBase(event)}
-        />
+        {value && (
+          <input
+            name="currency"
+            type="number"
+            min="0"
+            max="999999999999999"
+            className="currency__input"
+            ref={inputRef}
+            value={value}
+            onChange={(event) => updateBase(event)}
+          />
+        )}
       </div>
     </section>
   );

@@ -1,5 +1,10 @@
 //Styles for AddBtn component
 .add-button {
+  display: block;
+
+  min-width: 40px;
+  min-height: 40px;
+
   transition: all var(--animation-speed);
 
   border: none;
@@ -11,9 +16,6 @@
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
-
-  min-width: 40px;
-  min-height: 40px;
 
   //States
   &:hover,

@@ -14,11 +14,10 @@ import minimize from "../../icons/minimize.svg";
 import down from "../../icons/down.svg";
 import up from "../../icons/up.svg";
 
-export const Header = () => {
+export const Header = ({ fullscreen }) => {
   const dispatch = useDispatch();
 
-  //Screen mode
-  const fullscreen = useSelector((state) => state.fullscreen.fullscreen);
+  //Screen mode (fullscreen)
   const changeMode = (fullscreen) => {
     dispatch(applyFullscreen(fullscreen));
   };

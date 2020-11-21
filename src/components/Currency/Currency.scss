@@ -1,5 +1,7 @@
 //Styles for Currency component
 .currency {
+  flex: 1 1 100px;
+
   position: relative;
 
   //Local variables
@@ -10,7 +12,6 @@
 
   //Variants
   &-base {
-    height: 100%;
     border-bottom: none;
     border-radius: 0 0 0 var(--size-border-radius);
   }
@@ -65,7 +66,6 @@
     padding: 16px;
 
     display: flex;
-    justify-content: space-between;
   }
 
   //Input
@@ -77,7 +77,7 @@
   }
 
   &__input {
-    max-width: 90%;
+    width: 100%;
     font-size: var(--size-text-input);
 
     color: var(--color-text-primary);
