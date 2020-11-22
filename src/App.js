@@ -14,6 +14,7 @@ import { fetchRates } from "./redux/API/requestActions";
 import downIcon from "./icons/down.svg";
 import upIcon from "./icons/up.svg";
 //Components
+import { Scrollbar } from "./components/Scrollbar/Scrollbar";
 import { ControlBtn } from "./components/ControlBtn/ControlBtn";
 import { AddBtn } from "./components/AddBtn/AddBtn";
 import { Header } from "./components/Header/Header";
@@ -81,22 +82,24 @@ function App() {
   }, [columns]);
 
   return (
-    <div
-      className={`App ${darkTheme ? "dark" : "light"} ${
-        fullscreen ? "fullscreen" : ""
-      }`}
-    >
-      <section className={`surface ${fullscreen ? "fullscreen" : ""}`}>
-        <Header fullscreen={fullscreen} />
-        <main className="content">
-          <BaseColumn fullscreen={fullscreen} />
-          {columns.map((value) => {
-            return <Column key={value} fullscreen={fullscreen} />;
-          })}
-          <AddBtn onClick={addColumn} />
-        </main>
-      </section>
-    </div>
+    <Scrollbar>
+      <div
+        className={`App ${darkTheme ? "dark" : "light"} ${
+          fullscreen ? "fullscreen" : ""
+        }`}
+      >
+        <section className={`surface ${fullscreen ? "fullscreen" : ""}`}>
+          <Header fullscreen={fullscreen} />
+          <main className="content">
+            <BaseColumn fullscreen={fullscreen} />
+            {columns.map((value) => {
+              return <Column key={value} fullscreen={fullscreen} />;
+            })}
+            <AddBtn onClick={addColumn} />
+          </main>
+        </section>
+      </div>
+    </Scrollbar>
   );
 }
 

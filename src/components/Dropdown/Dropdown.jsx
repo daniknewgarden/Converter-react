@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useClickOutside } from "../../hooks/useClickOutside";
 //Components
 import { ControlBtn } from "../ControlBtn/ControlBtn";
+import { Scrollbar } from "../Scrollbar/Scrollbar";
 //Styles
 import "./Dropdown.scss";
 //Icons
@@ -76,7 +77,12 @@ export const Dropdown = ({ list, defaultOptionIndex, onChoose }) => {
             className="dropdown__menu-search"
             placeholder="Type for search..."
           />
-          <ul className="dropdown__list">{options}</ul>
+          <Scrollbar style={{ height: 133 }}>
+            <ul className="dropdown__list">
+              {options}
+              {options}
+            </ul>
+          </Scrollbar>
         </div>
       )}
     </section>
