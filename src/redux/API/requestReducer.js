@@ -16,6 +16,8 @@ const requestReducer = (state = initialState, action) => {
       return { ...state, isFetching: false, data: action.payload, error: null };
     case Actions.ERROR_FETCH_RATES:
       return { ...state, isFetching: false, data: null, error: action.payload };
+    case Actions.PUSH_RATES_ARRAY:
+      return { ...state, ratesArr: action.payload };
     default:
       return state;
   }
