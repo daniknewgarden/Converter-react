@@ -6,6 +6,7 @@ import { Scrollbars } from "react-custom-scrollbars";
 const renderThumb = ({ style, ...props }) => {
   const thumbStyle = {
     backgroundColor: "rgb(81 81 88 / 0.3)",
+    borderRadius: 100,
   };
 
   return <div style={{ ...style, ...thumbStyle }} {...props} />;

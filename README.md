@@ -84,10 +84,36 @@ Loading...
 
 **Convert algorithm. 👨‍🔬**
 
+<!-- TODO: add description -->
+
 ### Header
 
 ![Screenshot](https://i.imgur.com/G3yYkRe.png) <br/>
 **Header of the App. Here you can change screen mode and theme**
+
+### Column
+
+![Screenshot](https://i.imgur.com/ntmO1xr.png) <br/>
+**Column contains currencies, you can add and remove them.**
+
+#### Columns variants
+
+| Name       | Type   | Description                                          |
+| ---------- | ------ | ---------------------------------------------------- |
+| BaseColumn | base   | Contains only one currency (base)                    |
+| Column     | normal | Contains normal currencies. You add and remove them. |
+
+**BaseColumn props**
+| Props | Type | Description |
+| ---------- | ------ | ---------------------------------------------------- |
+| fullscreen | boolean | If fullscreen enabled, it has some styles. |
+
+### Scrollbar
+
+![Screenshot](https://i.imgur.com/8g3aGVv.png) <br/>
+**I used pretty custom scrollbar.**
+
+[See react-custom-scrollbars docs](https://github.com/malte-wessel/react-custom-scrollbars "react-custom-scrollbars docs")
 
 ## Hooks guide ⚓
 

@@ -3,7 +3,7 @@ import { AddBtn } from "../AddBtn/AddBtn";
 import { Currency } from "../Currency/Currency";
 import "./Columns.scss";
 
-export const Column = ({ fullscreen }) => {
+export const Column = () => {
   const [currencies, setCurrencies] = useState(["1", "2"]);
   const [canRemove, setCanRemove] = useState(true);
 
