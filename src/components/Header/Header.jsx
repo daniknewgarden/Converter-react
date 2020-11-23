@@ -1,5 +1,4 @@
 import React from "react";
-
 //Redux
 import { useSelector, useDispatch } from "react-redux";
 import { applyFullscreen } from "../../redux/fullscreen/fullscreenActions";
@@ -13,6 +12,10 @@ import maximize from "../../icons/maximize.svg";
 import minimize from "../../icons/minimize.svg";
 import down from "../../icons/down.svg";
 import up from "../../icons/up.svg";
+import oneColumn from "../../icons/columns-one.svg";
+import twoColumn from "../../icons/columns-two.svg";
+//Mobile adaptation
+import { isMobileOnly, isBrowser, isTablet } from "react-device-detect";
 
 export const Header = ({ fullscreen }) => {
   const dispatch = useDispatch();
@@ -51,11 +54,19 @@ export const Header = ({ fullscreen }) => {
             onClick={() => changeTheme(!darkTheme)}
           />
         )}
-        <ControlBtn
-          label={modeLabel}
-          icon={fullscreen ? minimize : maximize}
-          onClick={() => changeMode(!fullscreen)}
-        />
+        {(isBrowser || isTablet) && (
+          <ControlBtn
+            label={modeLabel}
+            icon={fullscreen ? minimize : maximize}
+            onClick={() => changeMode(!fullscreen)}
+          />
+        )}
+        {isMobileOnly && (
+          <ControlBtn
+            label={modeLabel}
+            icon={fullscreen ? oneColumn : twoColumn}
+          />
+        )}
       </div>
     </header>
   );
