@@ -23,7 +23,7 @@ import { Currency } from "./components/Currency/Currency";
 import { BaseColumn } from "./components/Columns/BaseColumn";
 import { Column, NormalColumn } from "./components/Columns/Column";
 //Mobile adaptation
-import { isMobileOnly } from "react-device-detect";
+import { isMobileOnly, isBrowser, isTablet } from "react-device-detect";
 
 function App() {
   const dispatch = useDispatch();
@@ -96,14 +96,18 @@ function App() {
           fullscreen ? "fullscreen" : ""
         }`}
       >
-        <section className={`surface ${fullscreen ? "fullscreen" : ""}`}>
+        <section
+          className={`surface ${fullscreen ? "fullscreen" : ""} ${
+            isMobileOnly ? "mobile" : ""
+          }`}
+        >
           <Header fullscreen={fullscreen} />
-          <main className="content">
+          <main className={`content ${isMobileOnly ? "mobile" : ""}`}>
             <BaseColumn fullscreen={fullscreen} />
             {columns.map((value) => {
               return <Column key={value} fullscreen={fullscreen} />;
             })}
-            <AddBtn onClick={addColumn} />
+            {(isBrowser || isTablet) && <AddBtn onClick={addColumn} />}
           </main>
         </section>
       </div>

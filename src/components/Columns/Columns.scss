@@ -9,10 +9,22 @@
 
   border-right: 1px solid var(--color-border);
 
+  //States
+  &.mobile {
+    flex: auto;
+    min-width: auto;
+  }
+
+  //Variants
   &-base {
     &.fullscreen {
-      flex: 0 0 320px;
+      flex: 2 0 320px;
       min-width: 320px;
+    }
+
+    &.mobile {
+      flex: auto;
+      min-width: auto;
     }
   }
 }

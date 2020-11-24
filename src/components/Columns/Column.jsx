@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { AddBtn } from "../AddBtn/AddBtn";
 import { Currency } from "../Currency/Currency";
 import "./Columns.scss";
+//Mobile adaptation
+import { isMobileOnly } from "react-device-detect";
 
 export const Column = () => {
   const [currencies, setCurrencies] = useState(["1", "2"]);
@@ -23,7 +25,7 @@ export const Column = () => {
   };
 
   return (
-    <div className="surface__column">
+    <div className={`surface__column ${isMobileOnly ? "mobile" : ""}`}>
       {currencies.map((value) => {
         return (
           <Currency

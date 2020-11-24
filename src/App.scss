@@ -78,6 +78,9 @@ body.theme-switch *:after {
     border: 1px solid var(--color-border);
     border-radius: var(--size-border-radius);
 
+    display: flex;
+    flex-direction: column;
+
     //States
     &.fullscreen {
       min-width: 100%;
@@ -89,9 +92,19 @@ body.theme-switch *:after {
         min-height: calc(100vh - 66px);
       }
     }
+
+    &.mobile {
+      flex-direction: column-reverse;
+    }
+
     .content {
       display: flex;
       flex-wrap: nowrap;
+
+      //States
+      &.mobile {
+        // flex-wrap: wrap;
+      }
     }
   }
 }
