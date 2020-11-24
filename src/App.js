@@ -22,14 +22,8 @@ import { Dropdown } from "./components/Dropdown/Dropdown";
 import { Currency } from "./components/Currency/Currency";
 import { BaseColumn } from "./components/Columns/BaseColumn";
 import { Column, NormalColumn } from "./components/Columns/Column";
-
-import {
-  BrowserView,
-  MobileOnlyView,
-  TabletView,
-  isTablet,
-  isMobile,
-} from "react-device-detect";
+//Mobile adaptation
+import { isMobileOnly } from "react-device-detect";
 
 function App() {
   const dispatch = useDispatch();
@@ -89,27 +83,11 @@ function App() {
     console.log(columns);
   }, [columns]);
 
-  const Content = () => {
-    if (isTablet) {
-      return (
-        <div style={{ background: "#000000", color: "#fff" }}>
-          tablet content
-        </div>
-      );
+  useEffect(() => {
+    if (isMobileOnly) {
+      changeMode(true);
     }
-    if (isMobile) {
-      return (
-        <div style={{ background: "#000000", color: "#fff" }}>
-          mobile content
-        </div>
-      );
-    }
-    return (
-      <div style={{ background: "#000000", color: "#fff" }}>
-        desktop content
-      </div>
-    );
-  };
+  }, []);
 
   return (
     <Scrollbar>

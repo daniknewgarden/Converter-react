@@ -36,12 +36,18 @@ export const Header = ({ fullscreen }) => {
     }, 500);
   };
 
+  //Classnames
+  const classNames = `header ${fullscreen ? "fullscreen" : ""} ${
+    isMobileOnly ? "mobile" : ""
+  }`;
+
   //Control buttons labels
   const modeLabel = fullscreen ? "Minimize" : "Fullscreen";
   const themeLabel = darkTheme ? "Dark Theme" : "Light Theme";
+  const columnModeLabel = darkTheme ? "2 column" : "1 column";
 
   return (
-    <header className={`header ${fullscreen ? "fullscreen" : ""}`}>
+    <header className={classNames}>
       <p className="header__link" href="">
         cr.fetbiko.ru
       </p>
@@ -63,8 +69,8 @@ export const Header = ({ fullscreen }) => {
         )}
         {isMobileOnly && (
           <ControlBtn
-            label={modeLabel}
-            icon={fullscreen ? oneColumn : twoColumn}
+            label={columnModeLabel}
+            icon={darkTheme ? oneColumn : twoColumn}
           />
         )}
       </div>

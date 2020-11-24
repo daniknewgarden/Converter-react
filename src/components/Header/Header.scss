@@ -2,6 +2,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   border-radius: var(--size-border-radius) var(--size-border-radius) 0 0;
   border-bottom: 1px solid var(--color-border);
@@ -24,5 +25,15 @@
   &.fullscreen {
     border-radius: 0;
     background-color: var(--color-body);
+  }
+
+  &.mobile {
+    padding: 20px 12px;
+
+    .header__controls {
+      *:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
   }
 }
