@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { applyFullscreen } from "../../redux/fullscreen/fullscreenActions";
 import { applyTheme } from "../../redux/theme/themeActions";
+import { applyTwoColumn } from "../../redux/columnMode/columnModeActions";
 //Components
 import { ControlBtn } from "../ControlBtn/ControlBtn";
 //Styles
@@ -12,8 +13,8 @@ import maximize from "../../icons/maximize.svg";
 import minimize from "../../icons/minimize.svg";
 import down from "../../icons/down.svg";
 import up from "../../icons/up.svg";
-import oneColumn from "../../icons/columns-one.svg";
-import twoColumn from "../../icons/columns-two.svg";
+import oneColumnIcon from "../../icons/columns-one.svg";
+import twoColumnIcon from "../../icons/columns-two.svg";
 //Mobile adaptation
 import { isMobileOnly, isBrowser, isTablet } from "react-device-detect";
 
@@ -36,6 +37,12 @@ export const Header = ({ fullscreen }) => {
     }, 500);
   };
 
+  //Column mode (only on mobile)
+  const twoColumn = useSelector((state) => state.twoColumn.twoColumn);
+  const changeColumnMode = () => {
+    dispatch(applyTwoColumn(!twoColumn));
+  };
+
   //Classnames
   const classNames = `header ${fullscreen ? "fullscreen" : ""} ${
     isMobileOnly ? "mobile" : ""
@@ -44,7 +51,7 @@ export const Header = ({ fullscreen }) => {
   //Control buttons labels
   const modeLabel = fullscreen ? "Minimize" : "Fullscreen";
   const themeLabel = darkTheme ? "Dark Theme" : "Light Theme";
-  const columnModeLabel = darkTheme ? "2 column" : "1 column";
+  const columnModeLabel = twoColumn ? "2 column" : "1 column";
 
   return (
     <header className={classNames}>
@@ -70,7 +77,8 @@ export const Header = ({ fullscreen }) => {
         {isMobileOnly && (
           <ControlBtn
             label={columnModeLabel}
-            icon={darkTheme ? oneColumn : twoColumn}
+            icon={twoColumn ? twoColumnIcon : oneColumnIcon}
+            onClick={changeColumnMode}
           />
         )}
       </div>

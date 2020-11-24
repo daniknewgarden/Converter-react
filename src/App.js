@@ -4,11 +4,6 @@ import "./App.scss";
 //Redux actions
 import { applyTheme } from "./redux/theme/themeActions";
 import { applyFullscreen } from "./redux/fullscreen/fullscreenActions";
-import {
-  applyDesktop,
-  applyTablet,
-  applyMobile,
-} from "./redux/device/deviceActions";
 import { fetchRates } from "./redux/API/requestActions";
 //Icons
 import downIcon from "./icons/down.svg";
@@ -39,21 +34,6 @@ function App() {
     dispatch(applyFullscreen(fullscreen));
   };
 
-  //Device mode
-  const mode = useSelector((state) => state.mode.mode);
-  const changeDeviceMode = (mode) => {
-    switch (mode) {
-      case "mobile":
-        dispatch(applyMobile(mode));
-        break;
-      case "tablet":
-        dispatch(applyTablet(mode));
-        break;
-      default:
-        dispatch(applyDesktop(mode));
-        break;
-    }
-  };
   //Rates
   const ratesData = useSelector((state) => state.ratesData);
 
@@ -89,6 +69,9 @@ function App() {
     }
   }, []);
 
+  //Column mode
+  const twoColumn = useSelector((state) => state.twoColumn.twoColumn);
+
   return (
     <Scrollbar>
       <div
@@ -102,7 +85,11 @@ function App() {
           }`}
         >
           <Header fullscreen={fullscreen} />
-          <main className={`content ${isMobileOnly ? "mobile" : ""}`}>
+          <main
+            className={`content ${isMobileOnly ? "mobile" : ""} ${
+              twoColumn ? "two-column" : ""
+            }`}
+          >
             <BaseColumn fullscreen={fullscreen} />
             {columns.map((value) => {
               return <Column key={value} fullscreen={fullscreen} />;
