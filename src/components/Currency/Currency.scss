@@ -23,6 +23,11 @@
     opacity: 1;
   }
 
+  &-mobile {
+    border-radius: 0px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
   //States
   &:hover &__remove-btn {
     opacity: 1;
@@ -39,8 +44,6 @@
     justify-content: space-between;
 
     padding: 8px 8px 0 8px;
-
-    border: 1px solid red;
   }
 
   //Remove btn
@@ -73,8 +76,6 @@
   //Bottom part
   &__bottom-part {
     padding: 16px;
-
-    border: 1px solid red;
 
     flex-grow: 1;
 
