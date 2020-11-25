@@ -1,8 +1,11 @@
 //Styles for Currency component
 .currency {
-  flex: 1 1 100px;
+  flex: 1 1 96px;
 
   position: relative;
+
+  display: flex;
+  flex-direction: column;
 
   //Local variables
   --color-local-background: var(--color-surface);
@@ -14,6 +17,10 @@
   &-base {
     border-bottom: none;
     border-radius: 0 0 0 var(--size-border-radius);
+  }
+
+  &-mobile &__remove-btn {
+    opacity: 1;
   }
 
   //States
@@ -32,6 +39,8 @@
     justify-content: space-between;
 
     padding: 8px 8px 0 8px;
+
+    border: 1px solid red;
   }
 
   //Remove btn
@@ -65,7 +74,12 @@
   &__bottom-part {
     padding: 16px;
 
+    border: 1px solid red;
+
+    flex-grow: 1;
+
     display: flex;
+    align-items: flex-start;
   }
 
   //Input

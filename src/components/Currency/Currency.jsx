@@ -6,6 +6,8 @@ import { updateBaseValue } from "../../redux/baseValue/baseValueActions";
 import { Dropdown } from "../Dropdown/Dropdown";
 //Styles
 import "./Currency.scss";
+//Mobile adaptation
+import { isMobile } from "react-device-detect";
 
 //FIXME: remove me
 let testArr = [
@@ -44,7 +46,9 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
 
   return (
     <section
-      className={`currency ${baseStatus ? "currency-base" : ""}`}
+      className={`currency ${baseStatus ? "currency-base" : ""} ${
+        isMobile ? "currency-mobile" : ""
+      }`}
       tabIndex="0"
       onKeyDown={(e) => {
         if (
@@ -76,8 +80,7 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
           <input
             name="currency"
             type="number"
-            min="0"
-            max="999999999999999"
+            min="1"
             className="currency__input"
             ref={inputRef}
             value={value}

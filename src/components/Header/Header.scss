@@ -29,11 +29,11 @@
 
   &.mobile {
     padding: 20px 12px;
+  }
 
-    .header__controls {
-      *:not(:last-child) {
-        margin-right: 10px;
-      }
+  &.mobile &__controls {
+    *:not(:last-child) {
+      margin-right: 10px;
     }
   }
 }
