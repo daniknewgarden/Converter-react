@@ -94,7 +94,9 @@ function App() {
             {columns.map((value) => {
               return <Column key={value} fullscreen={fullscreen} />;
             })}
-            {(isBrowser || isTablet) && <AddBtn onClick={addColumn} />}
+            {(isBrowser || isTablet) && (
+              <AddBtn onClick={addColumn} ariaLabel="Add column" />
+            )}
           </main>
         </section>
       </div>

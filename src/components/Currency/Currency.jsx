@@ -62,7 +62,11 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
           onChoose={(currency) => setCurrency(currency)}
         />
         {canRemove && (
-          <button className="currency__remove-btn" onClick={remove}></button>
+          <button
+            className="currency__remove-btn"
+            onClick={remove}
+            aria-label="remove this currency"
+          ></button>
         )}
       </div>
       <div

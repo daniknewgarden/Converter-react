@@ -65,6 +65,7 @@ export const Header = ({ fullscreen }) => {
             icon={darkTheme ? down : up}
             reversed={true}
             onClick={() => changeTheme(!darkTheme)}
+            ariaLabel={`${darkTheme ? "disable" : "enable"} dark mode`}
           />
         )}
         {(isBrowser || isTablet) && (
@@ -72,6 +73,7 @@ export const Header = ({ fullscreen }) => {
             label={modeLabel}
             icon={fullscreen ? minimize : maximize}
             onClick={() => changeMode(!fullscreen)}
+            ariaLabel={`${fullscreen ? "disable" : "enable"} fullscreen mode`}
           />
         )}
         {isMobileOnly && (
@@ -79,6 +81,7 @@ export const Header = ({ fullscreen }) => {
             label={columnModeLabel}
             icon={twoColumn ? twoColumnIcon : oneColumnIcon}
             onClick={changeColumnMode}
+            ariaLabel={`${twoColumn ? "disable" : "enable"} two column mode`}
           />
         )}
       </div>

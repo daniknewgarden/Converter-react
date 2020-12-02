@@ -36,7 +36,7 @@ export const Column = () => {
           />
         );
       })}
-      <AddBtn onClick={addCurrency} />
+      <AddBtn onClick={addCurrency} ariaLabel='Add currency'/>
     </div>
   );
 };
