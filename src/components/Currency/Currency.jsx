@@ -6,6 +6,8 @@ import { updateBaseValue } from "../../redux/baseValue/baseValueActions";
 import { Dropdown } from "../Dropdown/Dropdown";
 //Styles
 import "./Currency.scss";
+//Animations
+import { animated } from "react-spring";
 
 //FIXME: remove me
 let testArr = [
@@ -14,7 +16,7 @@ let testArr = [
   { value: "USD", name: "US Dollar", icon: "$", rate: 1.18 },
 ];
 
-export const Currency = ({ baseStatus, canRemove, remove }) => {
+export const Currency = ({ baseStatus, canRemove, remove, style }) => {
   const dispatch = useDispatch();
 
   const baseValue = useSelector((state) => state.baseValue.value);
@@ -43,7 +45,8 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
   };
 
   return (
-    <section
+    <animated.section
+      style={style}
       className={`currency ${baseStatus ? "currency-base" : ""}`}
       tabIndex="0"
       onKeyDown={(e) => {
@@ -76,7 +79,7 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
         <label name="currency" className="currency__icon">
           {currency.icon}
         </label>
-        {value && (
+        {(value || value === 0) && (
           <input
             name="currency"
             type="number"
@@ -89,6 +92,6 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
           />
         )}
       </div>
-    </section>
+    </animated.section>
   );
 };

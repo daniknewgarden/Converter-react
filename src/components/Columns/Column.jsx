@@ -4,9 +4,11 @@ import { Currency } from "../Currency/Currency";
 import "./Columns.scss";
 //Mobile adaptation
 import { isMobileOnly } from "react-device-detect";
+//Animation
+import { animated, useTransition } from "react-spring";
 
 export const Column = () => {
-  const [currencies, setCurrencies] = useState(["1", "2"]);
+  const [currencies, setCurrencies] = useState([1]);
   const [canRemove, setCanRemove] = useState(true);
 
   useEffect(() => {
@@ -24,19 +26,26 @@ export const Column = () => {
     }
   };
 
+  //Animation
+  const transitions = useTransition(currencies, null, {
+    config: { duration: 250 },
+    from: { transform: "translate3d(0,-10px,0)" },
+    enter: { transform: "translate3d(0,0,0)" },
+    leave: { height: 0, flexBasis: 0 },
+  });
+
   return (
     <div className={`surface__column ${isMobileOnly ? "mobile" : ""}`}>
-      {currencies.map((value) => {
-        return (
-          <Currency
-            key={value}
-            remove={() => removeCurrency(value)}
-            canRemove={canRemove}
-            baseStatus={false}
-          />
-        );
-      })}
-      <AddBtn onClick={addCurrency} ariaLabel='Add currency'/>
+      {transitions.map(({ item, props }) => (
+        <Currency
+          style={props}
+          key={item}
+          remove={() => removeCurrency(item)}
+          canRemove={canRemove}
+          baseStatus={false}
+        />
+      ))}
+      <AddBtn onClick={addCurrency} ariaLabel="Add currency" />
     </div>
   );
 };

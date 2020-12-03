@@ -8,6 +8,7 @@
   justify-content: space-between;
 
   border-right: 1px solid var(--color-border);
+  background-color: var(--color-surface);
 
   //States
   &.mobile {
@@ -25,6 +26,11 @@
     &.mobile {
       flex: auto;
       min-width: auto;
+
+      .currency-base {
+        border-radius: 0px;
+        border-bottom: 1px solid var(--color-border);
+      }
     }
   }
 }

@@ -47,11 +47,13 @@ body.theme-switch *:after {
   //With custom scrollbar wrapper it must have this
   position: absolute;
 
+  min-height: 100%;
+
   padding: 75px;
   text-align: center;
-  min-height: 100vh;
   min-width: 100%;
   color: var(--color-text-primary);
+  background-color: var(--color-body);
 
   display: flex;
   justify-content: center;
@@ -80,6 +82,10 @@ body.theme-switch *:after {
 
     display: flex;
     flex-direction: column;
+
+    .content {
+      background-color: var(--color-local-background);
+    }
 
     //States
     &.fullscreen {
