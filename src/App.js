@@ -23,7 +23,6 @@ import { isMobileOnly, isBrowser, isTablet } from "react-device-detect";
 import { animated, useSpring, config } from "react-spring";
 import { useHeight } from "./hooks/useHeight";
 
-
 function App() {
   const dispatch = useDispatch();
   //Theme
@@ -56,8 +55,10 @@ function App() {
     { value: "USD", name: "US Dollar", icon: "$" },
   ];
 
-  //Normal columns
-  const [columns, setColumns] = useState(["1"]);
+  //Normal columns options
+  const [columns, setColumns] = useState([1]);
+  //Simple react key
+  let id = 1;
 
   const addColumn = () => {
     setColumns([...columns, columns.length + 1]);
@@ -111,8 +112,8 @@ function App() {
               ref={heightRef}
             >
               <BaseColumn fullscreen={fullscreen} />
-              {columns.map((value) => {
-                return <Column key={value} fullscreen={fullscreen} />;
+              {columns.map((item) => {
+                return <Column key={id++} fullscreen={fullscreen} />;
               })}
               {(isBrowser || isTablet) && (
                 <AddBtn onClick={addColumn} ariaLabel="Add column" />

@@ -8,7 +8,10 @@ import { isMobileOnly } from "react-device-detect";
 import { animated, useTransition } from "react-spring";
 
 export const Column = () => {
+  //Currencies options
   const [currencies, setCurrencies] = useState([1]);
+  //Simple react key
+  let id = 1;
   const [canRemove, setCanRemove] = useState(true);
 
   useEffect(() => {
@@ -28,10 +31,10 @@ export const Column = () => {
 
   //Animation
   const transitions = useTransition(currencies, null, {
-    config: { duration: 250 },
-    from: { transform: "translate3d(0,-10px,0)" },
-    enter: { transform: "translate3d(0,0,0)" },
-    leave: { height: 0, flexBasis: 0 },
+    config: { duration: 1000 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0, height: 0, flexBasis: 0 },
   });
 
   return (
@@ -39,7 +42,7 @@ export const Column = () => {
       {transitions.map(({ item, props }) => (
         <Currency
           style={props}
-          key={item}
+          key={id++}
           remove={() => removeCurrency(item)}
           canRemove={canRemove}
           baseStatus={false}
