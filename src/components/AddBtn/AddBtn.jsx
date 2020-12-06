@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 //Styles
 import "./AddBtn.scss";
 export const AddBtn = ({ onClick, vertical, borderSide, ariaLabel }) => {

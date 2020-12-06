@@ -5,7 +5,7 @@ import "./Columns.scss";
 //Mobile adaptation
 import { isMobileOnly } from "react-device-detect";
 //Animation
-import { animated, useTransition } from "react-spring";
+import { useTransition } from "react-spring";
 
 export const Column = () => {
   //Currencies options
@@ -16,7 +16,6 @@ export const Column = () => {
 
   useEffect(() => {
     currencies.length < 2 ? setCanRemove(false) : setCanRemove(true);
-    console.log(currencies);
   }, [currencies]);
 
   const addCurrency = () => {

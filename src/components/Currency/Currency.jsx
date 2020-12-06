@@ -28,7 +28,7 @@ export const Currency = ({ baseStatus, canRemove, remove, style }) => {
     const num = baseStatus ? baseValue : baseValue * currency.rate;
 
     setValue(Math.round(num * 100) / 100);
-  }, [baseValue, currency]);
+  }, [baseValue, currency, baseStatus]);
 
   //Input focus
   const inputRef = useRef();
