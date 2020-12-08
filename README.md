@@ -149,3 +149,50 @@ export const Dropdown = () => {
  )
 }
 ```
+
+## State management guide 👩‍💼
+
+I'm using **Redux** to manage global state. **See official [redux](https://redux.js.org/) and [react-redux](https://react-redux.js.org/) docs.**
+
+**States description**
+
+### Theme 🎨
+
+Allows you to toggle change the theme.
+
+| Action     | Argument | Description                   |
+| ---------- | -------- | ----------------------------- |
+| applyTheme | boolean  | Enable or disable dark theme. |
+
+### Fullscreen 💻
+
+Allows you to toggle change the fullscreen mode.
+
+| Action          | Argument | Description                   |
+| --------------- | -------- | ----------------------------- |
+| applyFullscreen | boolean  | Enable or disable fullscreen. |
+
+### Column mode 📳
+
+**Works only on phone 📱.** <br/>
+![Two column demo](https://i.imgur.com/churtxw.gif)
+
+| Action         | Argument | Description                        |
+| -------------- | -------- | ---------------------------------- |
+| applyTwoColumn | boolean  | Enable or disable two column mode. |
+
+### Base value 💱
+
+The base currency value is basic for conversion to other currencies. It calls in all currencies. [**See algorithm docs**](#).
+
+| Action          | Argument | Description                 |
+| --------------- | -------- | --------------------------- |
+| updateBaseValue | number   | Update base currency value. |
+
+### API requests
+
+I'm using [redux-thunk](https://github.com/reduxjs/redux-thunk) for async API requests.
+
+| Action     | Argument | Description                         |
+| ---------- | -------- | ----------------------------------- |
+| fetchRates | string   | Base currency short name (USD, EUR) |

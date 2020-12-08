@@ -1,8 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 //Styles
 import "./ControlBtn.scss";
 
-export const ControlBtn = ({ label, active, icon, reversed, big, onClick }) => {
+export const ControlBtn = ({
+  label,
+  active,
+  icon,
+  reversed,
+  big,
+  onClick,
+  ariaLabel,
+}) => {
   const [enabled, setEnabled] = useState(false);
 
   const styles = {
@@ -24,7 +32,12 @@ export const ControlBtn = ({ label, active, icon, reversed, big, onClick }) => {
 
   return (
     <>
-      <button className={classNames} style={styles} onClick={toggleClick}>
+      <button
+        className={classNames}
+        style={styles}
+        onClick={toggleClick}
+        aria-label={ariaLabel}
+      >
         {label}
       </button>
     </>

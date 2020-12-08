@@ -4,14 +4,18 @@ import { Currency } from "../Currency/Currency";
 import "./Columns.scss";
 //Mobile adaptation
 import { isMobileOnly } from "react-device-detect";
+//Animation
+import { useTransition } from "react-spring";
 
 export const Column = () => {
-  const [currencies, setCurrencies] = useState(["1", "2"]);
+  //Currencies options
+  const [currencies, setCurrencies] = useState([1]);
+  //Simple react key
+  let id = 1;
   const [canRemove, setCanRemove] = useState(true);
 
   useEffect(() => {
     currencies.length < 2 ? setCanRemove(false) : setCanRemove(true);
-    console.log(currencies);
   }, [currencies]);
 
   const addCurrency = () => {
@@ -24,19 +28,26 @@ export const Column = () => {
     }
   };
 
+  //Animation
+  const transitions = useTransition(currencies, null, {
+    config: { duration: 1000 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0, height: 0, flexBasis: 0 },
+  });
+
   return (
     <div className={`surface__column ${isMobileOnly ? "mobile" : ""}`}>
-      {currencies.map((value) => {
-        return (
-          <Currency
-            key={value}
-            remove={() => removeCurrency(value)}
-            canRemove={canRemove}
-            baseStatus={false}
-          />
-        );
-      })}
-      <AddBtn onClick={addCurrency} />
+      {transitions.map(({ item, props }) => (
+        <Currency
+          style={props}
+          key={id++}
+          remove={() => removeCurrency(item)}
+          canRemove={canRemove}
+          baseStatus={false}
+        />
+      ))}
+      <AddBtn onClick={addCurrency} ariaLabel="Add currency" />
     </div>
   );
 };

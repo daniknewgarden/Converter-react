@@ -19,6 +19,9 @@ import { BaseColumn } from "./components/Columns/BaseColumn";
 import { Column, NormalColumn } from "./components/Columns/Column";
 //Mobile adaptation
 import { isMobileOnly, isBrowser, isTablet } from "react-device-detect";
+//Animations
+import { animated, useSpring, config } from "react-spring";
+import { useHeight } from "./hooks/useHeight";
 
 function App() {
   const dispatch = useDispatch();
@@ -52,8 +55,10 @@ function App() {
     { value: "USD", name: "US Dollar", icon: "$" },
   ];
 
-  //Normal columns
-  const [columns, setColumns] = useState(["1"]);
+  //Normal columns options
+  const [columns, setColumns] = useState([1]);
+  //Simple react key
+  let id = 1;
 
   const addColumn = () => {
     setColumns([...columns, columns.length + 1]);
@@ -72,6 +77,20 @@ function App() {
   //Column mode
   const twoColumn = useSelector((state) => state.twoColumn.twoColumn);
 
+  //ANim
+  const [heightRef, height] = useHeight();
+
+  const useDynamicHeight = useSpring({
+    from: { height: 143 },
+    to: {
+      height: height,
+    },
+  });
+
+  useEffect(() => {
+    console.log(heightRef, height);
+  }, [heightRef, height]);
+
   return (
     <Scrollbar>
       <div
@@ -85,17 +104,22 @@ function App() {
           }`}
         >
           <Header fullscreen={fullscreen} />
-          <main
-            className={`content ${isMobileOnly ? "mobile" : ""} ${
-              twoColumn ? "two-column" : ""
-            }`}
-          >
-            <BaseColumn fullscreen={fullscreen} />
-            {columns.map((value) => {
-              return <Column key={value} fullscreen={fullscreen} />;
-            })}
-            {(isBrowser || isTablet) && <AddBtn onClick={addColumn} />}
-          </main>
+          <animated.div style={useDynamicHeight}>
+            <main
+              className={`content ${isMobileOnly ? "mobile" : ""} ${
+                twoColumn ? "two-column" : ""
+              }`}
+              ref={heightRef}
+            >
+              <BaseColumn fullscreen={fullscreen} />
+              {columns.map((item) => {
+                return <Column key={id++} fullscreen={fullscreen} />;
+              })}
+              {(isBrowser || isTablet) && (
+                <AddBtn onClick={addColumn} ariaLabel="Add column" />
+              )}
+            </main>
+          </animated.div>
         </section>
       </div>
     </Scrollbar>

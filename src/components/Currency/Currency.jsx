@@ -6,8 +6,13 @@ import { updateBaseValue } from "../../redux/baseValue/baseValueActions";
 import { Dropdown } from "../Dropdown/Dropdown";
 //Styles
 import "./Currency.scss";
+
 //Mobile adaptation
 import { isMobile } from "react-device-detect";
+
+//Animations
+import { animated } from "react-spring";
+
 
 //FIXME: remove me
 let testArr = [
@@ -16,7 +21,7 @@ let testArr = [
   { value: "USD", name: "US Dollar", icon: "$", rate: 1.18 },
 ];
 
-export const Currency = ({ baseStatus, canRemove, remove }) => {
+export const Currency = ({ baseStatus, canRemove, remove, style }) => {
   const dispatch = useDispatch();
 
   const baseValue = useSelector((state) => state.baseValue.value);
@@ -28,7 +33,7 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
     const num = baseStatus ? baseValue : baseValue * currency.rate;
 
     setValue(Math.round(num * 100) / 100);
-  }, [baseValue, currency]);
+  }, [baseValue, currency, baseStatus]);
 
   //Input focus
   const inputRef = useRef();
@@ -45,10 +50,10 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
   };
 
   return (
-    <section
-      className={`currency ${baseStatus ? "currency-base" : ""} ${
-        isMobile ? "currency-mobile" : ""
-      }`}
+    <animated.section
+      style={style}
+      className={`currency ${baseStatus ? "currency-base" : ""}`}
+
       tabIndex="0"
       onKeyDown={(e) => {
         if (
@@ -66,7 +71,11 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
           onChoose={(currency) => setCurrency(currency)}
         />
         {canRemove && (
-          <button className="currency__remove-btn" onClick={remove}></button>
+          <button
+            className="currency__remove-btn"
+            onClick={remove}
+            aria-label="remove this currency"
+          ></button>
         )}
       </div>
       <div
@@ -76,7 +85,7 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
         <label name="currency" className="currency__icon">
           {currency.icon}
         </label>
-        {value && (
+        {(value || value === 0) && (
           <input
             name="currency"
             type="number"
@@ -88,6 +97,6 @@ export const Currency = ({ baseStatus, canRemove, remove }) => {
           />
         )}
       </div>
-    </section>
+    </animated.section>
   );
 };
