@@ -8,6 +8,8 @@
   flex-direction: column;
   align-items: flex-start;
 
+  width: clamp(220px, 51.85%, 100%);
+
   //Menu
   &__menu {
     overflow: hidden;
@@ -18,7 +20,7 @@
     position: absolute;
     z-index: 3;
 
-    width: clamp(220px, 51.85%, 280px);
+    width: 100%;
 
     border: 1px solid var(--color-border);
     border-radius: var(--size-border-radius);
