@@ -13,7 +13,6 @@ import { isMobile } from "react-device-detect";
 //Animations
 import { animated } from "react-spring";
 
-
 //FIXME: remove me
 let testArr = [
   { value: "EUR", name: "Euro", icon: "€", rate: 1 },
@@ -52,8 +51,9 @@ export const Currency = ({ baseStatus, canRemove, remove, style }) => {
   return (
     <animated.section
       style={style}
-      className={`currency ${baseStatus ? "currency-base" : ""}`}
-
+      className={`currency ${baseStatus ? "currency-base" : ""} ${
+        isMobile ? "currency-mobile" : ""
+      }`}
       tabIndex="0"
       onKeyDown={(e) => {
         if (
