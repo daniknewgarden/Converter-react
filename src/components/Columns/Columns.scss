@@ -18,6 +18,8 @@
 
   //Variants
   &-base {
+    border-radius: 0 0 0 var(--size-border-radius);
+
     &.fullscreen {
       flex: 2 0 320px;
       min-width: 320px;
