@@ -28,11 +28,15 @@ export const Column = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(id);
+  }, [id]);
+
   //Animation
   const transitions = useTransition(currencies, null, {
-    config: { duration: 1000 },
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
+    config: { duration: 250 },
+    from: { opacity: 0, height: 0, flexBasis: 0 },
+    enter: { opacity: 1, height: 96, flexBasis: 96 },
     leave: { opacity: 0, height: 0, flexBasis: 0 },
   });
 
@@ -40,7 +44,7 @@ export const Column = () => {
     <div className={`surface__column ${isMobileOnly ? "mobile" : ""}`}>
       {transitions.map(({ item, props }) => (
         <Currency
-          style={props}
+          style={{ ...props }}
           key={id++}
           remove={() => removeCurrency(item)}
           canRemove={canRemove}

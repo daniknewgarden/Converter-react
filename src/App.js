@@ -87,10 +87,6 @@ function App() {
     },
   });
 
-  useEffect(() => {
-    console.log(heightRef, height);
-  }, [heightRef, height]);
-
   return (
     <Scrollbar>
       <div
@@ -104,22 +100,20 @@ function App() {
           }`}
         >
           <Header fullscreen={fullscreen} />
-          <animated.div style={useDynamicHeight}>
-            <main
-              className={`content ${isMobileOnly ? "mobile" : ""} ${
-                twoColumn ? "two-column" : ""
-              }`}
-              ref={heightRef}
-            >
-              <BaseColumn fullscreen={fullscreen} />
-              {columns.map((item) => {
-                return <Column key={id++} fullscreen={fullscreen} />;
-              })}
-              {(isBrowser || isTablet) && (
-                <AddBtn onClick={addColumn} ariaLabel="Add column" />
-              )}
-            </main>
-          </animated.div>
+          <main
+            className={`content ${isMobileOnly ? "mobile" : ""} ${
+              twoColumn ? "two-column" : ""
+            }`}
+            ref={heightRef}
+          >
+            <BaseColumn fullscreen={fullscreen} />
+            {columns.map((item) => {
+              return <Column key={id++} fullscreen={fullscreen} />;
+            })}
+            {(isBrowser || isTablet) && (
+              <AddBtn onClick={addColumn} ariaLabel="Add column" />
+            )}
+          </main>
         </section>
       </div>
     </Scrollbar>
