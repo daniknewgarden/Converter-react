@@ -84,7 +84,7 @@ Loading...
 
 **Convert algorithm. 👨‍🔬**
 
-<!-- TODO: add description -->
+![Algorithm](https://i.imgur.com/w94J0rW.png) <br/>
 
 ### Header
 
