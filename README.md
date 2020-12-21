@@ -274,7 +274,7 @@ Allows you to toggle change the fullscreen mode.
 
 ### Base value 💱
 
-The base currency value is basic for conversion to other currencies. It calls in all currencies. [**See algorithm docs**](#).
+The base currency value is basic for conversion to other currencies. It calls in all currencies. [**See algorithm docs**](#currency).
 
 | Action          | Argument | Description                 |
 | --------------- | -------- | --------------------------- |
