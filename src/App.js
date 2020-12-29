@@ -4,13 +4,13 @@ import "./App.scss";
 //Redux actions
 import { applyTheme } from "./redux/theme/themeActions";
 import { applyFullscreen } from "./redux/fullscreen/fullscreenActions";
-import { fetchRates } from "./redux/API/requestActions";
+import { setColumnCount } from "./redux/column/columnCount/columnCountActions";
 //Components
 import { Scrollbar } from "./components/Scrollbar/Scrollbar";
 import { AddBtn } from "./components/AddBtn/AddBtn";
 import { Header } from "./components/Header/Header";
 import { BaseColumn } from "./components/Columns/BaseColumn";
-import { Column, NormalColumn } from "./components/Columns/Column";
+import { Column } from "./components/Columns/Column";
 //Mobile adaptation
 import { isMobileOnly, isBrowser, isTablet } from "react-device-detect";
 //Animations
@@ -31,17 +31,6 @@ function App() {
     dispatch(applyFullscreen(fullscreen));
   };
 
-  //Rates
-  const ratesData = useSelector((state) => state.ratesData);
-
-  const getData = (base) => {
-    dispatch(fetchRates(base));
-  };
-
-  useEffect(() => {
-    getData("EUR");
-  }, []);
-
   //TODO: remove me
   let testArr = [
     { value: "EUR", name: "Euro", icon: "€" },
@@ -55,10 +44,8 @@ function App() {
   const [canRemove, setCanRemove] = useState(false);
 
   useEffect(() => {
-    columns.length > 1
-      ? console.log("you can remove column")
-      : console.log('you can"t remove column');
-  }, [columns]);
+    dispatch(setColumnCount(columns.length));
+  }, [columns.length]);
 
   const addColumn = () => {
     setColumns([...columns, Math.random()]);

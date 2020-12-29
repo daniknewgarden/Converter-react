@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { applyFullscreen } from "../../redux/fullscreen/fullscreenActions";
 import { applyTheme } from "../../redux/theme/themeActions";
-import { applyTwoColumn } from "../../redux/columnMode/columnModeActions";
+import { applyTwoColumn } from "../../redux/column/columnMode/columnModeActions";
 //Components
 import { ControlBtn } from "../ControlBtn/ControlBtn";
 //Styles

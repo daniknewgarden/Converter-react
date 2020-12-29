@@ -6,6 +6,8 @@ import "./Columns.scss";
 import { isMobileOnly } from "react-device-detect";
 //Animation
 import { useTransition } from "react-spring";
+//redux
+import { useSelector } from "react-redux";
 
 export const Column = ({ remove }) => {
   //Currencies options
@@ -13,11 +15,22 @@ export const Column = ({ remove }) => {
 
   const [canRemove, setCanRemove] = useState(true);
 
+  const columnsCount = useSelector((state) => state.columnsCount.count);
+
   useEffect(() => {
     if (currencies.length < 1) {
       remove();
     }
   }, [currencies]);
+
+  //Column remove
+  useEffect(() => {
+    if (currencies.length < 2 && columnsCount < 2) {
+      setCanRemove(false);
+    } else {
+      setCanRemove(true);
+    }
+  }, [currencies, columnsCount]);
 
   const addCurrency = () => {
     setCurrencies([...currencies, Math.random()]);
