@@ -7,19 +7,20 @@ import { isMobileOnly } from "react-device-detect";
 //Animation
 import { useTransition } from "react-spring";
 
-export const Column = () => {
+export const Column = ({ remove }) => {
   //Currencies options
-  const [currencies, setCurrencies] = useState([1]);
-  //Simple react key
-  let id = 1;
+  const [currencies, setCurrencies] = useState([Math.random()]);
+
   const [canRemove, setCanRemove] = useState(true);
 
   useEffect(() => {
-    currencies.length < 2 ? setCanRemove(false) : setCanRemove(true);
+    if (currencies.length < 1) {
+      remove();
+    }
   }, [currencies]);
 
   const addCurrency = () => {
-    setCurrencies([...currencies, currencies.length + 1]);
+    setCurrencies([...currencies, Math.random()]);
   };
 
   const removeCurrency = (id) => {
@@ -27,10 +28,6 @@ export const Column = () => {
       setCurrencies(currencies.filter((item) => item !== id));
     }
   };
-
-  useEffect(() => {
-    console.log(id);
-  }, [id]);
 
   //Animation
   const transitions = useTransition(currencies, null, {
@@ -45,7 +42,7 @@ export const Column = () => {
       {transitions.map(({ item, props }) => (
         <Currency
           style={{ ...props }}
-          key={id++}
+          key={item}
           remove={() => removeCurrency(item)}
           canRemove={canRemove}
           baseStatus={false}

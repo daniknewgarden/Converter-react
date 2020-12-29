@@ -5,16 +5,10 @@ import "./App.scss";
 import { applyTheme } from "./redux/theme/themeActions";
 import { applyFullscreen } from "./redux/fullscreen/fullscreenActions";
 import { fetchRates } from "./redux/API/requestActions";
-//Icons
-import downIcon from "./icons/down.svg";
-import upIcon from "./icons/up.svg";
 //Components
 import { Scrollbar } from "./components/Scrollbar/Scrollbar";
-import { ControlBtn } from "./components/ControlBtn/ControlBtn";
 import { AddBtn } from "./components/AddBtn/AddBtn";
 import { Header } from "./components/Header/Header";
-import { Dropdown } from "./components/Dropdown/Dropdown";
-import { Currency } from "./components/Currency/Currency";
 import { BaseColumn } from "./components/Columns/BaseColumn";
 import { Column, NormalColumn } from "./components/Columns/Column";
 //Mobile adaptation
@@ -56,12 +50,22 @@ function App() {
   ];
 
   //Normal columns options
-  const [columns, setColumns] = useState([1]);
-  //Simple react key
-  let id = 1;
+  const [columns, setColumns] = useState([Math.random()]);
+  //Column remove
+  const [canRemove, setCanRemove] = useState(false);
+
+  useEffect(() => {
+    columns.length > 1
+      ? console.log("you can remove column")
+      : console.log('you can"t remove column');
+  }, [columns]);
 
   const addColumn = () => {
-    setColumns([...columns, columns.length + 1]);
+    setColumns([...columns, Math.random()]);
+  };
+
+  const removeColumn = (id) => {
+    setColumns(columns.filter((item) => item !== id));
   };
 
   useEffect(() => {
@@ -79,13 +83,6 @@ function App() {
 
   //ANim
   const [heightRef, height] = useHeight();
-
-  const useDynamicHeight = useSpring({
-    from: { height: 143 },
-    to: {
-      height: height,
-    },
-  });
 
   return (
     <Scrollbar>
@@ -108,7 +105,13 @@ function App() {
           >
             <BaseColumn fullscreen={fullscreen} />
             {columns.map((item) => {
-              return <Column key={id++} fullscreen={fullscreen} />;
+              return (
+                <Column
+                  key={item}
+                  fullscreen={fullscreen}
+                  remove={() => removeColumn(item)}
+                />
+              );
             })}
             {(isBrowser || isTablet) && (
               <AddBtn onClick={addColumn} ariaLabel="Add column" />
